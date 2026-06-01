@@ -97,21 +97,19 @@ a {
 
 .brand-mark {
   display: grid;
-  width: 50px;
-  height: 50px;
+  width: 64px;
+  height: 64px;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 12px;
+  border: 0;
+  border-radius: 0;
   color: var(--white);
-  background:
-    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.28), transparent 28%),
-    linear-gradient(135deg, var(--accent), #0ea5e9);
-  box-shadow: 0 14px 34px rgba(29, 78, 216, 0.32);
+  background: transparent;
+  box-shadow: none;
   font-weight: 950;
 }
 
 .brand-logo {
-  padding: 6px;
+  padding: 0;
 }
 
 .brand-logo img {
@@ -926,8 +924,8 @@ details p {
 }
 
 .footer-brand .brand-mark {
-  width: 42px;
-  height: 42px;
+  width: 54px;
+  height: 54px;
 }
 
 .footer a,
