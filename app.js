@@ -134,6 +134,15 @@ const defaultConfig = {
     body: "Depois de responder o quiz, selecione um dia e horário no calendário abaixo. Assim, o estrategista já recebe seu contexto antes da conversa.",
     url: "https://calendly.com/blumelmatriculas/diagnostico-gratuito-blumel"
   },
+  clients: [
+    { name: "Microlins", logo: "assets/client-microlins.png" },
+    { name: "Prepara", logo: "assets/client-prepara.png" },
+    { name: "Wizard by Pearson", logo: "assets/client-wizard.png" },
+    { name: "Grupo Evolua", logo: "assets/client-evolua.webp" },
+    { name: "Uninter", logo: "assets/client-uninter.png" },
+    { name: "Instituto Mix", logo: "assets/client-instituto-mix.png" },
+    { name: "Cebrac", logo: "assets/client-cebrac.png" }
+  ],
   form: {
     title: "Solicitar diagnóstico gratuito",
     time: "~ 60 segundos",
@@ -213,6 +222,7 @@ function render() {
     ${header()}
     <main>
       ${hero()}
+      ${trustedBy()}
       ${symptoms()}
       ${mistake()}
       ${framework()}
@@ -297,6 +307,28 @@ function conversionRail() {
         </article>
       `).join("")}
     </div>
+  `;
+}
+
+function trustedBy() {
+  const clients = config.clients || defaultConfig.clients;
+  const loop = [...clients, ...clients];
+  return `
+    <section class="trusted-section" aria-label="Quem confia na Blumel">
+      <div class="trusted-head">
+        <span class="kicker">Quem confia na Blumel</span>
+        <p>Instituições e redes de ensino que já entendem o valor de uma captação estruturada.</p>
+      </div>
+      <div class="logo-carousel">
+        <div class="logo-track">
+          ${loop.map((client) => `
+            <article class="logo-card">
+              <img src="${escapeHtml(client.logo)}" alt="${escapeHtml(client.name)}">
+            </article>
+          `).join("")}
+        </div>
+      </div>
+    </section>
   `;
 }
 
