@@ -1,160 +1,169 @@
-const STORAGE_KEY = "narrative-funnel-template-v1";
+const STORAGE_KEY = "blumel-enrollment-funnel-v1";
 
 const defaultConfig = {
   brand: {
-    name: "Full Funnel",
-    mark: "FF",
-    descriptor: "sistema comercial",
-    topBar: "A maior estrutura de processos comerciais do Brasil",
-    nav: ["Para quem e", "Processo", "Cases", "FAQ"]
+    name: "Blumel",
+    mark: "BL",
+    descriptor: "captacao de matriculas",
+    topBar: "O maior ecossistema de matriculas do Brasil",
+    nav: ["Para quem e", "Mecanismo", "Provas", "FAQ"]
   },
   cta: {
     label: "Quero meu diagnostico",
     modalLabel: "Quero meu diagnostico gratuito",
     finalLabel: "Aplicar agora",
-    urgency: "Cada estrategista atende apenas 4 empresas por semana."
+    urgency: "O diagnostico mostra um mapa real da sua operacao, dos canais ao fechamento da matricula."
   },
   hero: {
-    qualifier: "Para operacoes entre R$75k e R$5M por mes",
-    title: "Sua empresa vende. Mas o crescimento ainda depende de pessoas, nao de processos?",
-    highlight: "nao de processos",
-    subtitle: "Em um diagnostico 1:1, um estrategista encontra os gargalos do funil, da captacao ao fechamento, e mostra como crescer sem depender de vendedor estrela ou de mais trafego caro.",
+    qualifier: "Para escolas e faculdades que faturam de R$30k a R$500k+ por mes",
+    title: "Voce nao precisa de mais trafego, mais vendedor ou mais uma IA de atendimento. Voce precisa da estrutura certa para matricular mais rapido e mais barato.",
+    highlight: "estrutura certa",
+    subtitle: "A Blumel assume o funil inteiro, da aquisicao do lead ate a ponta da conversao. Construimos canais, geramos demanda, qualificamos e entregamos a oportunidade pronta. A escola ou faculdade fica com a parte que mais importa: converter a visita que levamos ou tirar o pedido da matricula no WhatsApp, sem aumentar verba de trafego e sem inchar o time comercial.",
+    note: "Em um diagnostico 1:1, um estrategista identifica onde seu funil esta furado, da captacao ao fechamento da matricula, e mostra como crescer sem depender de vendedor estrela ou de mais trafego caro.",
     stats: [
-      { value: "550+", label: "empresas aceleradas" },
-      { value: "R$500M+", label: "gerados em receita" },
-      { value: "8 anos", label: "construindo processos" }
+      { value: "4.9/5", label: "avaliacao media das instituicoes" },
+      { value: "2.500+", label: "instituicoes atendidas" },
+      { value: "+400 mil", label: "matriculas geradas em 9 anos" }
     ]
   },
   symptoms: {
-    kicker: "Sinais de vazamento",
-    title: "Voce tem time, trafego e vendas. Mas ainda nao tem um sistema comercial.",
-    body: "Sem um processo comercial replicavel, cada sintoma custa caro em operacoes estabelecidas, geralmente sem aparecer no DRE.",
+    kicker: "Para quem e",
+    title: "O problema nao e gerar lead. E tudo o que falta em volta dele.",
+    body: "Se o lead chega, mas nao vira visita, conversa ou matricula, o gargalo esta na estrutura que deveria conduzir essa pessoa ate a decisao.",
     items: [
-      { title: "Tudo depende do vendedor estrela", text: "Uma ou duas pessoas carregam o mes. Se elas somem, a meta vai junto." },
-      { title: "A venda vive na cabeca do time", text: "Cada vendedor conduz a conversa de um jeito e a empresa nao sabe o que realmente converte." },
-      { title: "Follow-up acontece quando da", text: "Leads bons esfriam porque nao existe cadencia clara, dono definido e proximo passo padrao." },
-      { title: "Trafego pago virou caixa-preta", text: "O marketing compra lead, o comercial reclama da qualidade, e ninguem enxerga o funil inteiro." },
-      { title: "Contratar mais gente so aumenta o caos", text: "Sem processo, cada novo vendedor aprende no improviso e multiplica a dependencia." }
+      { title: "Voce depende so do trafego pago", text: "Toda matricula do mes sai do anuncio do mes. Se a verba para, a captacao para, porque nao existe outro canal trazendo aluno em paralelo." },
+      { title: "O lead chega e morre no caminho", text: "Demora para responder, ninguem conduz para visita, ninguem fecha na conversa e ninguem faz follow-up. Voce paga para gerar e perde na largada." },
+      { title: "Cada melhoria e uma peca solta", text: "Um pouco de trafego aqui, um vendedor ali, uma planilha acola. Nada conversa entre si. Peca solta nao vira resultado, vira custo." },
+      { title: "Tudo depende de voce ou do vendedor ter jeito", text: "Sem estrutura, a captacao anda no improviso. Se a pessoa-chave falha, o mes inteiro vai junto." }
     ],
-    close: "Mais vendedor sem processo so aumenta a dependencia. Mais trafego sem qualificacao so joga dinheiro em um funil furado."
+    close: "Nao falta esforco nem dinheiro. Falta estrutura: um funil pensado de ponta a ponta, com estrategia para fazer o lead matricular mais rapido e custando menos."
   },
   mistake: {
-    title: "Voce provavelmente esta tentando resolver isso da forma errada.",
+    title: "A grande armadilha: as mentiras que deixam a captacao mais cara.",
     cards: [
-      { title: "Treinamento isolado", text: "Melhora discurso por alguns dias, mas nao cria cadencia, indicadores e rotina de gestao." },
-      { title: "Mais trafego", text: "Aumenta volume antes de corrigir qualificacao, proposta e fechamento." },
-      { title: "Planilha nova", text: "Organiza a bagunca por fora, mas nao muda o comportamento comercial por dentro." }
+      { title: "Mentira #1 - Preciso colocar mais dinheiro no trafego", text: "Falso. Trafego e um canal, nao a estrategia. Sozinho, ele so fica mais caro. A virada esta em outros canais de aquisicao e em um funil que aproveita cada lead ate o fim." },
+      { title: "Mentira #2 - Preciso contratar mais vendedor", text: "Falso. Mais gente sem estrutura e mais custo e mais dependencia. Um unico vendedor dentro de um funil bem montado fecha mais do que tres no improviso." },
+      { title: "Mentira #3 - Uma IA de atendimento resolve", text: "Falso. IA sem estrategia e so um robo respondendo rapido e perdendo lead na mesma velocidade. Tecnologia e peca do funil, nao o funil." },
+      { title: "Mentira #4 - Se eu baixar a mensalidade, lota", text: "Falso. Desconto corroi margem e nao conserta um funil furado. Quem some nao some por preco, some por falta de conducao e follow-up." }
     ]
   },
   framework: {
-    kicker: "Arquitetura",
-    title: "As 6 engrenagens do processo comercial completo",
-    body: "O diagnostico revela onde a engrenagem trava e qual ordem de ataque cria crescimento previsivel.",
+    kicker: "O mecanismo unico",
+    title: "Nos fazemos o funil inteiro.",
+    body: "Nao e gastar mais. E ter estrutura e estrategia, deixando a execucao com quem opera captacao de matriculas ha 9 anos.",
     items: [
-      { title: "Captacao ativa", text: "Lista, abordagem, cadencia e oferta para gerar conversas todos os dias." },
-      { title: "Trafego com rastreio", text: "Leads pagos conectados ao CRM, ao vendedor e a receita real." },
-      { title: "Qualificacao", text: "Criterios objetivos para separar curioso, oportunidade e comprador pronto." },
-      { title: "Fechamento", text: "Roteiro, proposta, follow-up e negociacao sem depender de improviso." },
-      { title: "Recompra e indicacao", text: "Receita mais barata vindo da base que ja confia na empresa." },
-      { title: "Recrutamento comercial", text: "Perfil, onboarding e gestao para formar vendedor produtivo sem meses de tentativa." }
+      { title: "Aquisicao multicanal", text: "Nao dependemos so de trafego pago. Em instituicoes parceiras, mais de 50% das matriculas do mes nao vem do trafego pago daquele mes." },
+      { title: "Geracao e qualificacao de lead", text: "A gente atrai e separa quem esta pronto. O vendedor nao perde tempo com curioso." },
+      { title: "Conducao ate a conversao", text: "Conduzimos cada lead ate o ponto de virada: a visita agendada ou o pedido de matricula no WhatsApp." },
+      { title: "Follow-up e reativacao", text: "Quem nao fechou na hora e retomado. Visitou e nao voltou, conversou e sumiu: tudo volta para o jogo." },
+      { title: "A ponta fica com voce", text: "Recebemos o lead, montamos o funil e entregamos a oportunidade pronta. A instituicao so converte." },
+      { title: "Operacao sem horas vagas", text: "Voce nao monta nada nem aprende funil nas horas vagas. Nos operamos a captacao. Voce matricula." }
     ]
   },
   cases: {
-    title: "Empresarios que trocaram dependencia por processo",
-    body: "Os nomes podem ser trocados por qualquer prova social da sua narrativa: cases, numeros, prints ou depoimentos.",
+    title: "Nao e mais um curso, nem mais um freelancer de trafego.",
+    body: "A Blumel entra para operar a captacao inteira. A instituicao recebe a oportunidade pronta para converter visita ou fechar o pedido no WhatsApp.",
     items: [
-      { name: "Operacao B2B", result: "+42% em receita", text: "Padronizou qualificacao e follow-up antes de aumentar midia." },
-      { name: "Clinica premium", result: "2,3x mais agendas", text: "Separou captacao, atendimento e fechamento em etapas mensuraveis." },
-      { name: "SaaS consultivo", result: "-31% CAC", text: "Cortou canais ruins e colocou CRM como fonte unica de verdade." }
+      { name: "Nao e mentoria", result: "Execucao", text: "Voce nao vai aprender a fazer nas horas vagas. Quem faz somos nos." },
+      { name: "Nao e trafego avulso", result: "Funil", text: "Subir campanha nao resolve sozinho. Trafego e uma peca de um funil inteiro." },
+      { name: "Nao e contratar mais vendedor", result: "Estrutura", text: "O gargalo nao e gente. E processo, canal, conducao e follow-up." },
+      { name: "Nao e so IA de atendimento", result: "Estrategia", text: "IA sem estrategia por tras e so velocidade para perder lead do mesmo jeito." }
     ]
   },
   future: {
-    title: "A vida do dono depois que o processo carrega a venda",
+    title: "A vida depois que a captacao deixa de depender so do trafego.",
     items: [
-      { title: "Previsibilidade", text: "Voce sabe quantas oportunidades entram, avancam e fecham." },
-      { title: "Lucro real", text: "Decisoes de contratacao e midia passam a olhar margem, nao so faturamento." },
-      { title: "Escala sem agenda lotada", text: "Cada novo cliente nao exige mais uma call do fundador." },
-      { title: "Empresa que vale mais", text: "Compradores pagam melhor por operacoes que nao dependem de uma pessoa." }
+      { title: "Outros canais sustentando o mes", text: "A captacao nao fica refem do anuncio do mes ou de uma unica fonte de demanda." },
+      { title: "Custo por matricula menor", text: "O mesmo lead rende mais, o aluno e melhor conduzido e a decisao acontece mais rapido." },
+      { title: "Sem inchar verba nem time", text: "A instituicao usa a mesma estrutura comercial com mais resultado na ponta." },
+      { title: "Funil operado por quem faz ha 9 anos", text: "Voce nao vira gestor de trafego, gestor de funil ou especialista em automacao." },
+      { title: "A escola faz so a ponta", text: "Converter a visita que chega pronta ou tirar o pedido de matricula no WhatsApp." }
     ]
   },
   authority: {
-    title: "Nos tambem conhecemos essa armadilha por dentro.",
-    body: "Antes de vender processo, vivemos operacoes onde vendedor estrela, trafego sem rastreio e rotina improvisada seguravam a escala. O metodo nasceu para tirar a empresa da sombra das proprias pessoas-chave.",
+    title: "Lucas Blumel construiu um ecossistema de matriculas para instituicoes de ensino.",
+    body: "Nos ultimos 9 anos, a Blumel replicou esse metodo em mais de 2.500 instituicoes, entre escolas profissionalizantes, faculdades, escolas de idiomas, tecnico, EJA, escolas regulares e educacao infantil. A especialidade e operar a captacao de ponta a ponta para a instituicao focar na conversao final.",
+    person: {
+      name: "Lucas Blumel",
+      role: "fundador da Blumel",
+      quote: "A instituicao nao precisa de mais uma peca solta. Precisa de um funil completo, operado por quem entende o caminho da matricula.",
+      photo: ""
+    },
     metrics: [
-      { value: "R$87M", label: "em faturamento proprio" },
-      { value: "550+", label: "empresas aceleradas" },
-      { value: "R$500M+", label: "em receita gerada" }
+      { value: "9 anos", label: "operando captacao educacional" },
+      { value: "2.500+", label: "instituicoes de ensino" },
+      { value: "+400 mil", label: "matriculas geradas" }
     ]
   },
   diagnostic: {
-    title: "O que voce sai sabendo do diagnostico",
+    title: "O que voce sai sabendo no diagnostico",
     items: [
-      { title: "Gargalo principal", text: "Onde o funil perde mais dinheiro hoje." },
-      { title: "Ordem de ataque", text: "O que corrigir primeiro para nao desperdicar energia." },
-      { title: "Alavancas de receita", text: "Mudancas que podem aumentar receita com a mesma base de leads." },
-      { title: "Mapa de processo", text: "Como transformar venda boa em rotina repetivel." }
+      { title: "Canais alem do trafego pago", text: "Quais fontes de aquisicao cabem na sua instituicao e podem sustentar matriculas em paralelo." },
+      { title: "Onde o funil perde matricula", text: "O ponto em que o lead esfria, some ou chega despreparado para a conversao." },
+      { title: "Reducao de custo por matricula", text: "Quanto da para melhorar quando a estrutura conduz melhor cada oportunidade gerada." },
+      { title: "Mapa real da operacao", text: "Voce sai com um diagnostico concreto da captacao, qualificacao, follow-up e conversao." }
     ]
   },
   fit: {
-    title: "Esse diagnostico nao e para qualquer um.",
+    title: "Esse diagnostico e para instituicoes que querem matricular com estrutura.",
     yes: [
-      "Voce ja vende e quer escalar com previsibilidade.",
-      "Voce aceita olhar numeros, rotina e responsabilidade comercial.",
-      "Voce quer um processo que sobreviva a troca de pessoas."
+      "Escolas, faculdades, cursos tecnicos, profissionalizantes, idiomas, EJA ou educacao infantil.",
+      "Instituicoes que faturam de R$30k a R$500k+ por mes.",
+      "Operacoes que querem depender menos de trafego pago e improviso comercial."
     ],
     no: [
-      "Voce busca uma frase magica para vender sem mudar operacao.",
-      "Voce nao tem interesse em medir funil e margem.",
-      "Voce quer apenas mais leads, sem mexer na conversao."
+      "Quem quer apenas desconto, mensalidade menor ou mais verba de anuncio.",
+      "Quem procura mentoria para executar sozinho nas horas vagas.",
+      "Quem nao quer medir lead, visita, follow-up e custo por matricula."
     ]
   },
   faq: [
-    { q: "O diagnostico tem custo?", a: "Nao. Ele funciona como uma analise inicial para identificar se existe encaixe entre o problema da empresa e a metodologia." },
-    { q: "Funciona para empresa do meu tamanho?", a: "O template foi pensado para ofertas com criterio de qualificacao. Troque a faixa de receita, equipe ou maturidade conforme sua narrativa." },
-    { q: "A call e pitch ou analise real?", a: "A promessa central e entregar clareza antes de vender implementacao. O pitch so faz sentido se o diagnostico indicar fit." },
-    { q: "Posso convidar meu socio?", a: "Sim. Para decisoes comerciais estruturais, e melhor que os decisores estejam na mesma conversa." }
+    { q: "O diagnostico tem custo?", a: "Nao. Ele serve para entender sua operacao atual, os canais possiveis e onde o funil esta perdendo matriculas." },
+    { q: "A Blumel faz so trafego pago?", a: "Nao. Trafego e apenas um canal. O trabalho envolve aquisicao multicanal, qualificacao, conducao, follow-up e entrega da oportunidade pronta." },
+    { q: "Minha escola precisa contratar mais vendedores?", a: "Nao necessariamente. A proposta e fazer o mesmo time receber oportunidades mais preparadas, com menos improviso e mais conducao." },
+    { q: "Isso funciona para qual tipo de instituicao?", a: "Escolas profissionalizantes, faculdades, idiomas, tecnico, EJA, escolas regulares e educacao infantil podem aplicar o diagnostico." }
   ],
   final: {
-    title: "Pronto para construir o processo que sua operacao ainda nao tem?",
-    body: "Diagnostico 1:1, zero custo, com uma narrativa adaptavel ao seu mercado, promessa e mecanismo."
+    title: "Pronto para descobrir onde sua instituicao esta perdendo matriculas?",
+    body: "No diagnostico 1:1, um estrategista identifica os pontos onde seu funil esta furado, da captacao ao fechamento da matricula, e mostra como crescer sem depender de vendedor estrela ou de mais trafego caro."
   },
   form: {
-    title: "Solicitar diagnostico",
+    title: "Solicitar diagnostico gratuito",
     time: "~ 60 segundos",
-    success: "Aplicacao registrada. Substitua este envio por Webhook, CRM ou WhatsApp.",
+    success: "Aplicacao registrada. Um estrategista da Blumel entrara em contato para confirmar os proximos passos.",
     steps: [
       {
         id: "segmento",
-        label: "Segmento",
-        title: "Qual o segmento da sua empresa?",
-        help: "Selecione a opcao que melhor representa seu negocio.",
+        label: "Instituicao",
+        title: "Qual tipo de instituicao voce representa?",
+        help: "Isso ajuda a entender o ciclo de captacao e matricula.",
         type: "choice",
         required: true,
-        options: ["Saude", "Financas", "Juridico", "Tecnologia/SaaS", "Industria", "Servicos/Mentoria", "Outro"]
+        options: ["Escola profissionalizante", "Faculdade", "Escola de idiomas", "Curso tecnico", "EJA", "Escola regular", "Educacao infantil", "Outro"]
       },
       {
         id: "perfil",
         label: "Perfil",
-        title: "Qual e o seu papel hoje na empresa?",
-        help: "A conversa muda quando falamos com socio, lider ou operador.",
+        title: "Qual e o seu papel hoje na instituicao?",
+        help: "A conversa muda quando falamos com mantenedor, diretor ou lider comercial.",
         type: "choice",
         required: true,
-        options: ["Socio / Empresario", "Gerente / Lider", "Colaborador", "Freelancer"]
+        options: ["Mantenedor / Socio", "Diretor", "Coordenador comercial", "Marketing", "Secretaria / Atendimento", "Outro"]
       },
       {
         id: "receita",
-        label: "Receita",
-        title: "Qual a receita media mensal da empresa?",
-        help: "A analise muda em cada faixa. Sem julgamento, so contexto.",
+        label: "Faturamento",
+        title: "Qual o faturamento mensal aproximado?",
+        help: "A analise muda conforme maturidade, verba, ticket e volume de matriculas.",
         type: "choice",
         required: true,
-        options: ["Abaixo de R$30 mil", "Entre R$30 mil e R$50 mil", "Entre R$50 mil e R$100 mil", "Entre R$100 mil e R$300 mil", "Entre R$300 mil e R$500 mil", "Entre R$500 mil e R$1 milhao", "Acima de R$1 milhao"]
+        options: ["Abaixo de R$30 mil", "Entre R$30 mil e R$50 mil", "Entre R$50 mil e R$100 mil", "Entre R$100 mil e R$300 mil", "Entre R$300 mil e R$500 mil", "Acima de R$500 mil"]
       },
       {
         id: "contato",
         label: "Contato",
-        title: "Quase la. Onde a gente te encontra?",
-        help: "Um estrategista entra em contato para confirmar sua vaga.",
+        title: "Quase la. Onde a Blumel te encontra?",
+        help: "Um estrategista entra em contato para confirmar o diagnostico.",
         type: "fields",
         required: true,
         fields: [
@@ -244,6 +253,7 @@ function hero() {
           <div class="pill"><span></span>${escapeHtml(config.hero.qualifier)}</div>
           <h1>${emphasize(config.hero.title, config.hero.highlight)}</h1>
           <p>${escapeHtml(config.hero.subtitle)}</p>
+          ${config.hero.note ? `<p class="hero-note">${escapeHtml(config.hero.note)}</p>` : ""}
           <div class="hero-actions">
             <button class="btn btn-primary btn-large" data-open-form type="button">${escapeHtml(config.cta.modalLabel)} <span aria-hidden="true">-></span></button>
             <a class="hero-link" href="#processo">Ver arquitetura</a>
@@ -261,8 +271,8 @@ function heroVisual() {
   return `
     <aside class="funnel-visual" aria-label="Mapa visual do funil">
       <div class="visual-topline">
-        <span>Mapa do funil</span>
-        <strong>ao vivo</strong>
+        <span>Mapa de matriculas</span>
+        <strong>ponta a ponta</strong>
       </div>
       <div class="funnel-path">
         ${labels.map((label, index) => `
@@ -275,14 +285,14 @@ function heroVisual() {
       <div class="score-panel">
         <div>
           <span>Gargalo provavel</span>
-          <strong>Qualificacao</strong>
+          <strong>Follow-up</strong>
         </div>
         <div class="score-meter"><span></span></div>
       </div>
       <div class="signal-grid">
-        <span>CRM</span>
+        <span>Canais</span>
         <span>Follow-up</span>
-        <span>Oferta</span>
+        <span>Matricula</span>
       </div>
     </aside>
   `;
@@ -293,14 +303,14 @@ function videoMock() {
     <section class="video-section" aria-label="Video de apresentacao">
       <div class="video-shell">
         <div class="video-copy">
-          <span class="kicker">Assista antes de aplicar</span>
-          <h2>Entenda em poucos minutos onde o funil costuma travar.</h2>
-          <p>Use este bloco como mock de VSL, demo, depoimento ou explicacao do mecanismo. Troque o texto e substitua o painel por um embed quando a narrativa estiver pronta.</p>
+          <span class="kicker">A virada</span>
+          <h2>Nao e gastar mais. E ter estrutura e estrategia.</h2>
+          <p>Voce nao precisa de mais um treinamento, mais um vendedor ou mais uma ferramenta. Precisa de um funil inteiro, que diversifica canais e conduz cada lead ate a matricula. A instituicao fica com a ponta: converter a visita ou tirar o pedido no WhatsApp.</p>
         </div>
         <button class="video-frame" data-open-form type="button" aria-label="Abrir aplicacao pelo video">
-          <span class="video-badge">Diagnostico comercial</span>
+          <span class="video-badge">Diagnostico de matriculas</span>
           <span class="play-button" aria-hidden="true"></span>
-          <span class="video-caption">Clique para aplicar agora</span>
+          <span class="video-caption">Quero ver meu mapa de captacao</span>
           <span class="video-progress"><span></span></span>
         </button>
       </div>
@@ -386,6 +396,10 @@ function future() {
 }
 
 function authority() {
+  const person = config.authority.person || {};
+  const photo = person.photo
+    ? `<img src="${escapeHtml(person.photo)}" alt="${escapeHtml(person.name || "Lucas Blumel")}">`
+    : `<span aria-hidden="true">${escapeHtml((person.name || "Lucas Blumel").split(" ").map((part) => part[0]).join("").slice(0, 2))}</span>`;
   return `
     <section class="authority">
       <div>
@@ -393,7 +407,17 @@ function authority() {
         <h2>${escapeHtml(config.authority.title)}</h2>
         <p>${escapeHtml(config.authority.body)}</p>
       </div>
-      <div class="metric-wall">${config.authority.metrics.map(stat).join("")}</div>
+      <div class="authority-stack">
+        <article class="authority-profile">
+          <div class="authority-photo">${photo}</div>
+          <div>
+            <strong>${escapeHtml(person.name || "Lucas Blumel")}</strong>
+            <small>${escapeHtml(person.role || "fundador da Blumel")}</small>
+            <p>${escapeHtml(person.quote || "")}</p>
+          </div>
+        </article>
+        <div class="metric-wall">${config.authority.metrics.map(stat).join("")}</div>
+      </div>
     </section>
   `;
 }
@@ -451,7 +475,7 @@ function footer() {
     <footer class="footer">
       <div>
         <strong>${escapeHtml(config.brand.name)}</strong>
-        <p>Template narrativo para funis de diagnostico, aplicacao e captacao consultiva.</p>
+        <p>Ecossistema de captacao para escolas e faculdades que querem matricular mais rapido e mais barato.</p>
       </div>
       <div>
         <strong>Navegar</strong>
