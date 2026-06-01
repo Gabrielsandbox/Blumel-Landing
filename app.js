@@ -1,4 +1,4 @@
-const STORAGE_KEY = "blumel-enrollment-funnel-v1";
+const STORAGE_KEY = "blumel-enrollment-funnel-v2";
 
 const defaultConfig = {
   brand: {
@@ -20,6 +20,7 @@ const defaultConfig = {
     highlight: "estrutura certa",
     subtitle: "A Blumel assume o funil inteiro, da aquisicao do lead ate a ponta da conversao. Construimos canais, geramos demanda, qualificamos e entregamos a oportunidade pronta. A escola ou faculdade fica com a parte que mais importa: converter a visita que levamos ou tirar o pedido da matricula no WhatsApp, sem aumentar verba de trafego e sem inchar o time comercial.",
     note: "Em um diagnostico 1:1, um estrategista identifica onde seu funil esta furado, da captacao ao fechamento da matricula, e mostra como crescer sem depender de vendedor estrela ou de mais trafego caro.",
+    proof: "★★★★★ 4.9 · 2.500+ instituicoes · +400 mil matriculas geradas em 9 anos",
     stats: [
       { value: "4.9/5", label: "avaliacao media das instituicoes" },
       { value: "2.500+", label: "instituicoes atendidas" },
@@ -127,6 +128,11 @@ const defaultConfig = {
     title: "Pronto para descobrir onde sua instituicao esta perdendo matriculas?",
     body: "No diagnostico 1:1, um estrategista identifica os pontos onde seu funil esta furado, da captacao ao fechamento da matricula, e mostra como crescer sem depender de vendedor estrela ou de mais trafego caro."
   },
+  calendar: {
+    title: "Agora escolha o melhor horario para o diagnostico.",
+    body: "Depois de responder o quiz, selecione um dia e horario no calendario abaixo. Assim o estrategista ja recebe seu contexto antes da conversa.",
+    url: "https://calendly.com/blumel/diagnostico"
+  },
   form: {
     title: "Solicitar diagnostico gratuito",
     time: "~ 60 segundos",
@@ -206,7 +212,6 @@ function render() {
     ${header()}
     <main>
       ${hero()}
-      ${videoMock()}
       ${symptoms()}
       ${mistake()}
       ${framework()}
@@ -254,65 +259,13 @@ function hero() {
           <h1>${emphasize(config.hero.title, config.hero.highlight)}</h1>
           <p>${escapeHtml(config.hero.subtitle)}</p>
           ${config.hero.note ? `<p class="hero-note">${escapeHtml(config.hero.note)}</p>` : ""}
+          ${config.hero.proof ? `<div class="hero-proof">${escapeHtml(config.hero.proof)}</div>` : ""}
           <div class="hero-actions">
             <button class="btn btn-primary btn-large" data-open-form type="button">${escapeHtml(config.cta.modalLabel)} <span aria-hidden="true">-></span></button>
-            <a class="hero-link" href="#processo">Ver arquitetura</a>
+            <a class="hero-link" href="#processo">Ver como funciona</a>
           </div>
         </div>
-        ${heroVisual()}
         <div class="stat-row">${config.hero.stats.map(stat).join("")}</div>
-      </div>
-    </section>
-  `;
-}
-
-function heroVisual() {
-  const labels = config.framework.items.slice(0, 4).map((item) => item.title);
-  return `
-    <aside class="funnel-visual" aria-label="Mapa visual do funil">
-      <div class="visual-topline">
-        <span>Mapa de matriculas</span>
-        <strong>ponta a ponta</strong>
-      </div>
-      <div class="funnel-path">
-        ${labels.map((label, index) => `
-          <div class="funnel-step">
-            <span>${index + 1}</span>
-            <strong>${escapeHtml(label)}</strong>
-          </div>
-        `).join("")}
-      </div>
-      <div class="score-panel">
-        <div>
-          <span>Gargalo provavel</span>
-          <strong>Follow-up</strong>
-        </div>
-        <div class="score-meter"><span></span></div>
-      </div>
-      <div class="signal-grid">
-        <span>Canais</span>
-        <span>Follow-up</span>
-        <span>Matricula</span>
-      </div>
-    </aside>
-  `;
-}
-
-function videoMock() {
-  return `
-    <section class="video-section" aria-label="Video de apresentacao">
-      <div class="video-shell">
-        <div class="video-copy">
-          <span class="kicker">A virada</span>
-          <h2>Nao e gastar mais. E ter estrutura e estrategia.</h2>
-          <p>Voce nao precisa de mais um treinamento, mais um vendedor ou mais uma ferramenta. Precisa de um funil inteiro, que diversifica canais e conduz cada lead ate a matricula. A instituicao fica com a ponta: converter a visita ou tirar o pedido no WhatsApp.</p>
-        </div>
-        <button class="video-frame" data-open-form type="button" aria-label="Abrir aplicacao pelo video">
-          <span class="video-badge">Diagnostico de matriculas</span>
-          <span class="play-button" aria-hidden="true"></span>
-          <span class="video-caption">Quero ver meu mapa de captacao</span>
-          <span class="video-progress"><span></span></span>
-        </button>
       </div>
     </section>
   `;
@@ -599,8 +552,40 @@ function nextStep() {
     return;
   }
   console.table(answers);
-  leadDialog.close();
-  notify(config.form.success);
+  renderScheduleStep();
+  notify("Quiz concluido. Agora escolha o horario do diagnostico.");
+}
+
+function renderScheduleStep() {
+  const calendar = config.calendar || defaultConfig.calendar;
+  const params = new URLSearchParams();
+  if (answers.nome) params.set("name", answers.nome);
+  if (answers.email) params.set("email", answers.email);
+  if (answers.whatsapp) params.set("a1", answers.whatsapp);
+  if (answers.segmento) params.set("a2", answers.segmento);
+  if (answers.receita) params.set("a3", answers.receita);
+  const calendarUrl = `${calendar.url}${calendar.url.includes("?") ? "&" : "?"}${params.toString()}`;
+
+  leadDialog.innerHTML = `
+    <form method="dialog" class="lead-form schedule-form">
+      <button class="dialog-close" value="cancel" aria-label="Fechar" type="submit">x</button>
+      <div class="step-meta"><span>Quiz concluido</span><span>Agendamento</span></div>
+      <h2 id="leadTitle">${escapeHtml(calendar.title)}</h2>
+      <p>${escapeHtml(calendar.body)}</p>
+      <div class="calendar-embed">
+        <iframe
+          title="Agenda do diagnostico Blumel"
+          src="${escapeHtml(calendarUrl)}"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-ghost" data-edit-quiz type="button">Voltar ao quiz</button>
+        <a class="btn btn-primary" href="${escapeHtml(calendarUrl)}" target="_blank" rel="noreferrer">Abrir Calendly em nova aba</a>
+      </div>
+    </form>
+  `;
 }
 
 function openEditor() {
@@ -677,6 +662,10 @@ document.addEventListener("click", (event) => {
   if (target.matches("[data-editor]")) openEditor();
   if (target.matches("[data-export]")) exportConfig();
   if (target.matches("[data-next-step]")) nextStep();
+  if (target.matches("[data-edit-quiz]")) {
+    currentStep = config.form.steps.length - 1;
+    renderLeadForm();
+  }
   if (target.matches("[data-prev-step]")) {
     persistCurrentStep();
     currentStep = Math.max(0, currentStep - 1);
