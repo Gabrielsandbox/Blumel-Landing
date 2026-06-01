@@ -540,7 +540,7 @@ function choiceStep(step) {
     const checked = answers[step.id] === option ? "checked" : "";
     return `
       <label class="choice-card">
-        <input name="${escapeHtml(step.id)}" value="${escapeHtml(option)}" type="radio" ${checked}>
+        <input name="${escapeHtml(step.id)}" value="${escapeHtml(option)}" type="radio" data-auto-next ${checked}>
         <span>${escapeHtml(option)}</span>
       </label>
     `;
@@ -718,6 +718,13 @@ document.addEventListener("click", (event) => {
     if (textarea) textarea.value = JSON.stringify(config, null, 2);
     notify("Exemplo restaurado");
   }
+});
+
+document.addEventListener("change", (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLInputElement)) return;
+  if (!target.matches("[data-auto-next]")) return;
+  window.setTimeout(() => nextStep(), 120);
 });
 
 render();
