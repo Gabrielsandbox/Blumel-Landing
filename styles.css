@@ -1278,13 +1278,95 @@ dialog::backdrop {
     height: 180px;
   }
 
-  .choice-grid,
-  .step-tabs {
-    grid-template-columns: 1fr;
+  dialog {
+    width: calc(100vw - 20px);
+    max-height: calc(100vh - 20px);
+    border-radius: 14px;
+  }
+
+  .lead-form,
+  .editor-form {
+    gap: 12px;
+    padding: 18px 14px 16px;
+  }
+
+  .dialog-close {
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
   }
 
   .step-tabs {
-    padding-right: 42px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 5px;
+    padding-right: 38px;
+  }
+
+  .step-tabs button {
+    min-height: 34px;
+    padding: 0;
+    font-size: 0;
+  }
+
+  .step-tabs button span {
+    display: inline-grid;
+    width: 22px;
+    height: 22px;
+    place-items: center;
+    margin: 0;
+    border-radius: 50%;
+    font-size: 0.76rem;
+  }
+
+  .step-tabs button.active span {
+    color: var(--white);
+    background: var(--accent);
+  }
+
+  .step-meta {
+    font-size: 0.72rem;
+  }
+
+  .lead-form h2,
+  .editor-form h2 {
+    font-size: clamp(1.28rem, 6vw, 1.72rem);
+    line-height: 1.1;
+  }
+
+  .lead-form p,
+  .editor-form p {
+    font-size: 0.92rem;
+  }
+
+  .choice-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .choice-card {
+    min-height: 50px;
+    padding: 11px 12px;
+    font-size: 0.92rem;
+  }
+
+  .field-grid {
+    gap: 10px;
+  }
+
+  .field-grid input {
+    height: 44px;
+  }
+
+  .form-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions .btn,
+  .form-actions a.btn {
+    width: 100%;
+    min-height: 46px;
   }
 
   .btn-large {
