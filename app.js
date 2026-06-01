@@ -1,166 +1,166 @@
-const STORAGE_KEY = "blumel-enrollment-funnel-v2";
+const STORAGE_KEY = "blumel-enrollment-funnel-v3";
 
 const defaultConfig = {
   brand: {
     name: "Blumel",
     mark: "BL",
-    descriptor: "captacao de matriculas",
-    topBar: "O maior ecossistema de matriculas do Brasil",
-    nav: ["Para quem e", "Mecanismo", "Provas", "FAQ"]
+    descriptor: "captação de matrículas",
+    topBar: "O maior ecossistema de matrículas do Brasil",
+    nav: ["Para quem é", "Mecanismo", "Provas", "FAQ"]
   },
   cta: {
-    label: "Quero meu diagnostico",
-    modalLabel: "Quero meu diagnostico gratuito",
+    label: "Quero meu diagnóstico",
+    modalLabel: "Quero meu diagnóstico gratuito",
     finalLabel: "Aplicar agora",
-    urgency: "O diagnostico mostra um mapa real da sua operacao, dos canais ao fechamento da matricula."
+    urgency: "O diagnóstico mostra um mapa real da sua operação, dos canais ao fechamento da matrícula."
   },
   hero: {
-    qualifier: "Para escolas e faculdades que faturam de R$30k a R$500k+ por mes",
-    title: "Voce nao precisa de mais trafego, mais vendedor ou mais uma IA de atendimento. Voce precisa da estrutura certa para matricular mais rapido e mais barato.",
+    qualifier: "Para escolas e faculdades que faturam de R$30k a R$500k+ por mês",
+    title: "Você não precisa de mais tráfego, mais vendedor ou mais uma IA de atendimento. Você precisa da estrutura certa para matricular mais rápido e mais barato.",
     highlight: "estrutura certa",
-    subtitle: "A Blumel assume o funil inteiro, da aquisicao do lead ate a ponta da conversao. Construimos canais, geramos demanda, qualificamos e entregamos a oportunidade pronta. A escola ou faculdade fica com a parte que mais importa: converter a visita que levamos ou tirar o pedido da matricula no WhatsApp, sem aumentar verba de trafego e sem inchar o time comercial.",
-    note: "Em um diagnostico 1:1, um estrategista identifica onde seu funil esta furado, da captacao ao fechamento da matricula, e mostra como crescer sem depender de vendedor estrela ou de mais trafego caro.",
-    proof: "★★★★★ 4.9 · 2.500+ instituicoes · +400 mil matriculas geradas em 9 anos",
+    subtitle: "A Blumel assume o funil inteiro, da aquisição do lead até a ponta da conversão. Construímos canais, geramos demanda, qualificamos e entregamos a oportunidade pronta. À escola ou faculdade sobra a parte que mais importa: converter a visita que levamos ou tirar o pedido da matrícula no WhatsApp, sem aumentar verba de tráfego e sem inchar o time comercial.",
+    note: "Em um diagnóstico 1:1, um estrategista identifica onde seu funil está furado, da captação ao fechamento da matrícula, e mostra como crescer sem depender de vendedor estrela ou de mais tráfego caro.",
+    proof: "★★★★★ 4,9 · 2.500+ instituições · +400 mil matrículas geradas em 9 anos",
     stats: [
-      { value: "4.9/5", label: "avaliacao media das instituicoes" },
-      { value: "2.500+", label: "instituicoes atendidas" },
-      { value: "+400 mil", label: "matriculas geradas em 9 anos" }
+      { value: "4,9/5", label: "avaliação média das instituições" },
+      { value: "2.500+", label: "instituições atendidas" },
+      { value: "+400 mil", label: "matrículas geradas em 9 anos" }
     ]
   },
   symptoms: {
-    kicker: "Para quem e",
-    title: "O problema nao e gerar lead. E tudo o que falta em volta dele.",
-    body: "Se o lead chega, mas nao vira visita, conversa ou matricula, o gargalo esta na estrutura que deveria conduzir essa pessoa ate a decisao.",
+    kicker: "Para quem é",
+    title: "O problema não é gerar lead. É tudo o que falta em volta dele.",
+    body: "Se o lead chega, mas não vira visita, conversa ou matrícula, o gargalo está na estrutura que deveria conduzir essa pessoa até a decisão.",
     items: [
-      { title: "Voce depende so do trafego pago", text: "Toda matricula do mes sai do anuncio do mes. Se a verba para, a captacao para, porque nao existe outro canal trazendo aluno em paralelo." },
-      { title: "O lead chega e morre no caminho", text: "Demora para responder, ninguem conduz para visita, ninguem fecha na conversa e ninguem faz follow-up. Voce paga para gerar e perde na largada." },
-      { title: "Cada melhoria e uma peca solta", text: "Um pouco de trafego aqui, um vendedor ali, uma planilha acola. Nada conversa entre si. Peca solta nao vira resultado, vira custo." },
-      { title: "Tudo depende de voce ou do vendedor ter jeito", text: "Sem estrutura, a captacao anda no improviso. Se a pessoa-chave falha, o mes inteiro vai junto." }
+      { title: "Você depende só do tráfego pago", text: "Toda matrícula do mês sai do anúncio do mês. Se a verba para, a captação para, porque não existe outro canal trazendo aluno em paralelo." },
+      { title: "O lead chega e morre no caminho", text: "Demora para responder, ninguém conduz para visita, ninguém fecha na conversa e ninguém faz follow-up. Você paga para gerar e perde na largada." },
+      { title: "Cada melhoria é uma peça solta", text: "Um pouco de tráfego aqui, um vendedor ali, uma planilha acolá. Nada conversa entre si. Peça solta não vira resultado; vira custo." },
+      { title: "Tudo depende de você ou do vendedor ter jeito", text: "Sem estrutura, a captação anda no improviso. Se a pessoa-chave falha, o mês inteiro vai junto." }
     ],
-    close: "Nao falta esforco nem dinheiro. Falta estrutura: um funil pensado de ponta a ponta, com estrategia para fazer o lead matricular mais rapido e custando menos."
+    close: "Não falta esforço nem dinheiro. Falta estrutura: um funil pensado de ponta a ponta, com estratégia para fazer o lead matricular mais rápido e custando menos."
   },
   mistake: {
-    title: "A grande armadilha: as mentiras que deixam a captacao mais cara.",
+    title: "A grande armadilha: as mentiras que deixam a captação mais cara.",
     cards: [
-      { title: "Mentira #1 - Preciso colocar mais dinheiro no trafego", text: "Falso. Trafego e um canal, nao a estrategia. Sozinho, ele so fica mais caro. A virada esta em outros canais de aquisicao e em um funil que aproveita cada lead ate o fim." },
-      { title: "Mentira #2 - Preciso contratar mais vendedor", text: "Falso. Mais gente sem estrutura e mais custo e mais dependencia. Um unico vendedor dentro de um funil bem montado fecha mais do que tres no improviso." },
-      { title: "Mentira #3 - Uma IA de atendimento resolve", text: "Falso. IA sem estrategia e so um robo respondendo rapido e perdendo lead na mesma velocidade. Tecnologia e peca do funil, nao o funil." },
-      { title: "Mentira #4 - Se eu baixar a mensalidade, lota", text: "Falso. Desconto corroi margem e nao conserta um funil furado. Quem some nao some por preco, some por falta de conducao e follow-up." }
+      { title: "Mentira #1 — Preciso colocar mais dinheiro no tráfego", text: "Falso. Tráfego é um canal, não a estratégia. Sozinho, ele só fica mais caro. A virada está em outros canais de aquisição e em um funil que aproveita cada lead até o fim." },
+      { title: "Mentira #2 — Preciso contratar mais vendedor", text: "Falso. Mais gente sem estrutura é mais custo e mais dependência. Um único vendedor, dentro de um funil bem montado, fecha mais do que três no improviso." },
+      { title: "Mentira #3 — Uma IA de atendimento resolve", text: "Falso. IA sem estratégia é só um robô respondendo rápido e perdendo lead na mesma velocidade. Tecnologia é peça do funil, não o funil." },
+      { title: "Mentira #4 — Se eu baixar a mensalidade, lota", text: "Falso. Desconto corrói margem e não conserta um funil furado. Quem some não some por preço; some por falta de condução e follow-up." }
     ]
   },
   framework: {
-    kicker: "O mecanismo unico",
-    title: "Nos fazemos o funil inteiro.",
-    body: "Nao e gastar mais. E ter estrutura e estrategia, deixando a execucao com quem opera captacao de matriculas ha 9 anos.",
+    kicker: "O mecanismo único",
+    title: "Nós fazemos o funil inteiro.",
+    body: "Não é gastar mais. É ter estrutura e estratégia, deixando a execução com quem opera captação de matrículas há 9 anos.",
     items: [
-      { title: "Aquisicao multicanal", text: "Nao dependemos so de trafego pago. Em instituicoes parceiras, mais de 50% das matriculas do mes nao vem do trafego pago daquele mes." },
-      { title: "Geracao e qualificacao de lead", text: "A gente atrai e separa quem esta pronto. O vendedor nao perde tempo com curioso." },
-      { title: "Conducao ate a conversao", text: "Conduzimos cada lead ate o ponto de virada: a visita agendada ou o pedido de matricula no WhatsApp." },
-      { title: "Follow-up e reativacao", text: "Quem nao fechou na hora e retomado. Visitou e nao voltou, conversou e sumiu: tudo volta para o jogo." },
-      { title: "A ponta fica com voce", text: "Recebemos o lead, montamos o funil e entregamos a oportunidade pronta. A instituicao so converte." },
-      { title: "Operacao sem horas vagas", text: "Voce nao monta nada nem aprende funil nas horas vagas. Nos operamos a captacao. Voce matricula." }
+      { title: "Aquisição multicanal", text: "Não dependemos só de tráfego pago. Em instituições parceiras, mais de 50% das matrículas do mês não vêm do tráfego pago daquele mês." },
+      { title: "Geração e qualificação de lead", text: "A gente atrai e separa quem está pronto. O vendedor não perde tempo com curioso." },
+      { title: "Condução até a conversão", text: "Conduzimos cada lead até o ponto de virada: a visita agendada ou o pedido de matrícula no WhatsApp." },
+      { title: "Follow-up e reativação", text: "Quem não fechou na hora é retomado. Visitou e não voltou, conversou e sumiu: tudo volta para o jogo." },
+      { title: "A ponta fica com você", text: "Recebemos o lead, montamos o funil e entregamos a oportunidade pronta. A instituição só converte." },
+      { title: "Operação sem horas vagas", text: "Você não monta nada nem aprende funil nas horas vagas. Nós operamos a captação. Você matricula." }
     ]
   },
   cases: {
-    title: "Nao e mais um curso, nem mais um freelancer de trafego.",
-    body: "A Blumel entra para operar a captacao inteira. A instituicao recebe a oportunidade pronta para converter visita ou fechar o pedido no WhatsApp.",
+    title: "Não é mais um curso, nem mais um freelancer de tráfego.",
+    body: "A Blumel entra para operar a captação inteira. A instituição recebe a oportunidade pronta para converter visita ou fechar o pedido no WhatsApp.",
     items: [
-      { name: "Nao e mentoria", result: "Execucao", text: "Voce nao vai aprender a fazer nas horas vagas. Quem faz somos nos." },
-      { name: "Nao e trafego avulso", result: "Funil", text: "Subir campanha nao resolve sozinho. Trafego e uma peca de um funil inteiro." },
-      { name: "Nao e contratar mais vendedor", result: "Estrutura", text: "O gargalo nao e gente. E processo, canal, conducao e follow-up." },
-      { name: "Nao e so IA de atendimento", result: "Estrategia", text: "IA sem estrategia por tras e so velocidade para perder lead do mesmo jeito." }
+      { name: "Não é mentoria", result: "Execução", text: "Você não vai aprender a fazer nas horas vagas. Quem faz somos nós." },
+      { name: "Não é tráfego avulso", result: "Funil", text: "Subir campanha não resolve sozinho. Tráfego é uma peça de um funil inteiro." },
+      { name: "Não é contratar mais vendedor", result: "Estrutura", text: "O gargalo não é gente. É processo, canal, condução e follow-up." },
+      { name: "Não é só IA de atendimento", result: "Estratégia", text: "IA sem estratégia por trás é só velocidade para perder lead do mesmo jeito." }
     ]
   },
   future: {
-    title: "A vida depois que a captacao deixa de depender so do trafego.",
+    title: "A vida depois que a captação deixa de depender só do tráfego.",
     items: [
-      { title: "Outros canais sustentando o mes", text: "A captacao nao fica refem do anuncio do mes ou de uma unica fonte de demanda." },
-      { title: "Custo por matricula menor", text: "O mesmo lead rende mais, o aluno e melhor conduzido e a decisao acontece mais rapido." },
-      { title: "Sem inchar verba nem time", text: "A instituicao usa a mesma estrutura comercial com mais resultado na ponta." },
-      { title: "Funil operado por quem faz ha 9 anos", text: "Voce nao vira gestor de trafego, gestor de funil ou especialista em automacao." },
-      { title: "A escola faz so a ponta", text: "Converter a visita que chega pronta ou tirar o pedido de matricula no WhatsApp." }
+      { title: "Outros canais sustentando o mês", text: "A captação não fica refém do anúncio do mês ou de uma única fonte de demanda." },
+      { title: "Custo por matrícula menor", text: "O mesmo lead rende mais, o aluno é melhor conduzido e a decisão acontece mais rápido." },
+      { title: "Sem inchar verba nem time", text: "A instituição usa a mesma estrutura comercial com mais resultado na ponta." },
+      { title: "Funil operado por quem faz há 9 anos", text: "Você não vira gestor de tráfego, gestor de funil ou especialista em automação." },
+      { title: "A escola faz só a ponta", text: "Converter a visita que chega pronta ou tirar o pedido de matrícula no WhatsApp." }
     ]
   },
   authority: {
-    title: "Lucas Blumel construiu um ecossistema de matriculas para instituicoes de ensino.",
-    body: "Nos ultimos 9 anos, a Blumel replicou esse metodo em mais de 2.500 instituicoes, entre escolas profissionalizantes, faculdades, escolas de idiomas, tecnico, EJA, escolas regulares e educacao infantil. A especialidade e operar a captacao de ponta a ponta para a instituicao focar na conversao final.",
+    title: "Lucas Blumel construiu um ecossistema de matrículas para instituições de ensino.",
+    body: "Nos últimos 9 anos, a Blumel replicou esse método em mais de 2.500 instituições, entre escolas profissionalizantes, faculdades, escolas de idiomas, técnico, EJA, escolas regulares e educação infantil. A especialidade é operar a captação de ponta a ponta para a instituição focar na conversão final.",
     person: {
       name: "Lucas Blumel",
       role: "fundador da Blumel",
-      quote: "A instituicao nao precisa de mais uma peca solta. Precisa de um funil completo, operado por quem entende o caminho da matricula.",
+      quote: "A instituição não precisa de mais uma peça solta. Precisa de um funil completo, operado por quem entende o caminho da matrícula.",
       photo: ""
     },
     metrics: [
-      { value: "9 anos", label: "operando captacao educacional" },
-      { value: "2.500+", label: "instituicoes de ensino" },
-      { value: "+400 mil", label: "matriculas geradas" }
+      { value: "9 anos", label: "operando captação educacional" },
+      { value: "2.500+", label: "instituições de ensino" },
+      { value: "+400 mil", label: "matrículas geradas" }
     ]
   },
   diagnostic: {
-    title: "O que voce sai sabendo no diagnostico",
+    title: "O que você sai sabendo no diagnóstico",
     items: [
-      { title: "Canais alem do trafego pago", text: "Quais fontes de aquisicao cabem na sua instituicao e podem sustentar matriculas em paralelo." },
-      { title: "Onde o funil perde matricula", text: "O ponto em que o lead esfria, some ou chega despreparado para a conversao." },
-      { title: "Reducao de custo por matricula", text: "Quanto da para melhorar quando a estrutura conduz melhor cada oportunidade gerada." },
-      { title: "Mapa real da operacao", text: "Voce sai com um diagnostico concreto da captacao, qualificacao, follow-up e conversao." }
+      { title: "Canais além do tráfego pago", text: "Quais fontes de aquisição cabem na sua instituição e podem sustentar matrículas em paralelo." },
+      { title: "Onde o funil perde matrícula", text: "O ponto em que o lead esfria, some ou chega despreparado para a conversão." },
+      { title: "Redução de custo por matrícula", text: "Quanto dá para melhorar quando a estrutura conduz melhor cada oportunidade gerada." },
+      { title: "Mapa real da operação", text: "Você sai com um diagnóstico concreto da captação, qualificação, follow-up e conversão." }
     ]
   },
   fit: {
-    title: "Esse diagnostico e para instituicoes que querem matricular com estrutura.",
+    title: "Esse diagnóstico é para instituições que querem matricular com estrutura.",
     yes: [
-      "Escolas, faculdades, cursos tecnicos, profissionalizantes, idiomas, EJA ou educacao infantil.",
-      "Instituicoes que faturam de R$30k a R$500k+ por mes.",
-      "Operacoes que querem depender menos de trafego pago e improviso comercial."
+      "Escolas, faculdades, cursos técnicos, profissionalizantes, idiomas, EJA ou educação infantil.",
+      "Instituições que faturam de R$30k a R$500k+ por mês.",
+      "Operações que querem depender menos de tráfego pago e improviso comercial."
     ],
     no: [
-      "Quem quer apenas desconto, mensalidade menor ou mais verba de anuncio.",
+      "Quem quer apenas desconto, mensalidade menor ou mais verba de anúncio.",
       "Quem procura mentoria para executar sozinho nas horas vagas.",
-      "Quem nao quer medir lead, visita, follow-up e custo por matricula."
+      "Quem não quer medir lead, visita, follow-up e custo por matrícula."
     ]
   },
   faq: [
-    { q: "O diagnostico tem custo?", a: "Nao. Ele serve para entender sua operacao atual, os canais possiveis e onde o funil esta perdendo matriculas." },
-    { q: "A Blumel faz so trafego pago?", a: "Nao. Trafego e apenas um canal. O trabalho envolve aquisicao multicanal, qualificacao, conducao, follow-up e entrega da oportunidade pronta." },
-    { q: "Minha escola precisa contratar mais vendedores?", a: "Nao necessariamente. A proposta e fazer o mesmo time receber oportunidades mais preparadas, com menos improviso e mais conducao." },
-    { q: "Isso funciona para qual tipo de instituicao?", a: "Escolas profissionalizantes, faculdades, idiomas, tecnico, EJA, escolas regulares e educacao infantil podem aplicar o diagnostico." }
+    { q: "O diagnóstico tem custo?", a: "Não. Ele serve para entender sua operação atual, os canais possíveis e onde o funil está perdendo matrículas." },
+    { q: "A Blumel faz só tráfego pago?", a: "Não. Tráfego é apenas um canal. O trabalho envolve aquisição multicanal, qualificação, condução, follow-up e entrega da oportunidade pronta." },
+    { q: "Minha escola precisa contratar mais vendedores?", a: "Não necessariamente. A proposta é fazer o mesmo time receber oportunidades mais preparadas, com menos improviso e mais condução." },
+    { q: "Isso funciona para qual tipo de instituição?", a: "Escolas profissionalizantes, faculdades, idiomas, técnico, EJA, escolas regulares e educação infantil podem aplicar o diagnóstico." }
   ],
   final: {
-    title: "Pronto para descobrir onde sua instituicao esta perdendo matriculas?",
-    body: "No diagnostico 1:1, um estrategista identifica os pontos onde seu funil esta furado, da captacao ao fechamento da matricula, e mostra como crescer sem depender de vendedor estrela ou de mais trafego caro."
+    title: "Pronto para descobrir onde sua instituição está perdendo matrículas?",
+    body: "No diagnóstico 1:1, um estrategista identifica os pontos onde seu funil está furado, da captação ao fechamento da matrícula, e mostra como crescer sem depender de vendedor estrela ou de mais tráfego caro."
   },
   calendar: {
-    title: "Agora escolha o melhor horario para o diagnostico.",
-    body: "Depois de responder o quiz, selecione um dia e horario no calendario abaixo. Assim o estrategista ja recebe seu contexto antes da conversa.",
+    title: "Agora escolha o melhor horário para o diagnóstico.",
+    body: "Depois de responder o quiz, selecione um dia e horário no calendário abaixo. Assim, o estrategista já recebe seu contexto antes da conversa.",
     url: "https://calendly.com/blumel/diagnostico"
   },
   form: {
-    title: "Solicitar diagnostico gratuito",
+    title: "Solicitar diagnóstico gratuito",
     time: "~ 60 segundos",
-    success: "Aplicacao registrada. Um estrategista da Blumel entrara em contato para confirmar os proximos passos.",
+    success: "Aplicação registrada. Um estrategista da Blumel entrará em contato para confirmar os próximos passos.",
     steps: [
       {
         id: "segmento",
-        label: "Instituicao",
-        title: "Qual tipo de instituicao voce representa?",
-        help: "Isso ajuda a entender o ciclo de captacao e matricula.",
+        label: "Instituição",
+        title: "Qual tipo de instituição você representa?",
+        help: "Isso ajuda a entender o ciclo de captação e matrícula.",
         type: "choice",
         required: true,
-        options: ["Escola profissionalizante", "Faculdade", "Escola de idiomas", "Curso tecnico", "EJA", "Escola regular", "Educacao infantil", "Outro"]
+        options: ["Escola profissionalizante", "Faculdade", "Escola de idiomas", "Curso técnico", "EJA", "Escola regular", "Educação infantil", "Outro"]
       },
       {
         id: "perfil",
         label: "Perfil",
-        title: "Qual e o seu papel hoje na instituicao?",
-        help: "A conversa muda quando falamos com mantenedor, diretor ou lider comercial.",
+        title: "Qual é o seu papel hoje na instituição?",
+        help: "A conversa muda quando falamos com mantenedor, diretor ou líder comercial.",
         type: "choice",
         required: true,
-        options: ["Mantenedor / Socio", "Diretor", "Coordenador comercial", "Marketing", "Secretaria / Atendimento", "Outro"]
+        options: ["Mantenedor / Sócio", "Diretor", "Coordenador comercial", "Marketing", "Secretaria / Atendimento", "Outro"]
       },
       {
         id: "receita",
         label: "Faturamento",
         title: "Qual o faturamento mensal aproximado?",
-        help: "A analise muda conforme maturidade, verba, ticket e volume de matriculas.",
+        help: "A análise muda conforme maturidade, verba, ticket e volume de matrículas.",
         type: "choice",
         required: true,
         options: ["Abaixo de R$30 mil", "Entre R$30 mil e R$50 mil", "Entre R$50 mil e R$100 mil", "Entre R$100 mil e R$300 mil", "Entre R$300 mil e R$500 mil", "Acima de R$500 mil"]
@@ -168,8 +168,8 @@ const defaultConfig = {
       {
         id: "contato",
         label: "Contato",
-        title: "Quase la. Onde a Blumel te encontra?",
-        help: "Um estrategista entra em contato para confirmar o diagnostico.",
+        title: "Quase lá. Onde a Blumel te encontra?",
+        help: "Um estrategista entra em contato para confirmar o diagnóstico.",
         type: "fields",
         required: true,
         fields: [
@@ -264,7 +264,7 @@ function hero() {
             <button class="btn btn-primary btn-large" data-open-form type="button">${escapeHtml(config.cta.modalLabel)} <span aria-hidden="true">-></span></button>
             <a class="hero-link" href="#processo">Ver como funciona</a>
           </div>
-          <small class="hero-microcopy">Diagnostico gratuito, com mapa real da sua captacao antes de qualquer proposta.</small>
+          <small class="hero-microcopy">Diagnóstico gratuito, com mapa real da sua captação antes de qualquer proposta.</small>
         </div>
         <div class="stat-row">${config.hero.stats.map(stat).join("")}</div>
         ${conversionRail()}
@@ -275,9 +275,9 @@ function hero() {
 
 function conversionRail() {
   const items = [
-    ["Aquisicao", "canais alem do trafego pago"],
-    ["Conducao", "lead guiado ate visita ou WhatsApp"],
-    ["Conversao", "oportunidade pronta para matricula"]
+    ["Aquisição", "canais além do tráfego pago"],
+    ["Condução", "lead guiado até visita ou WhatsApp"],
+    ["Conversão", "oportunidade pronta para matrícula"]
   ];
   return `
     <div class="conversion-rail" aria-label="Resumo do funil Blumel">
@@ -412,7 +412,7 @@ function fit() {
       <div class="section-head"><h2>${escapeHtml(config.fit.title)}</h2></div>
       <div class="fit-grid">
         <div class="fit-column yes">${list("Serve se", config.fit.yes)}</div>
-        <div class="fit-column no">${list("Nao serve se", config.fit.no)}</div>
+        <div class="fit-column no">${list("Não serve se", config.fit.no)}</div>
       </div>
       <div class="center"><button class="btn btn-primary" data-open-form type="button">${escapeHtml(config.cta.modalLabel)}</button></div>
     </section>
@@ -449,7 +449,7 @@ function footer() {
     <footer class="footer">
       <div>
         <strong>${escapeHtml(config.brand.name)}</strong>
-        <p>Ecossistema de captacao para escolas e faculdades que querem matricular mais rapido e mais barato.</p>
+        <p>Ecossistema de captação para escolas e faculdades que querem matricular mais rápido e mais barato.</p>
       </div>
       <div>
         <strong>Navegar</strong>
@@ -459,8 +459,8 @@ function footer() {
         <a href="#faq">FAQ</a>
       </div>
       <div>
-        <strong>Diagnostico</strong>
-        <button data-open-form type="button">Quero meu diagnostico gratuito</button>
+        <strong>Diagnóstico</strong>
+        <button data-open-form type="button">Quero meu diagnóstico gratuito</button>
         <a href="#processo">Ver mecanismo</a>
       </div>
     </footer>
@@ -574,7 +574,7 @@ function nextStep() {
   }
   console.table(answers);
   renderScheduleStep();
-  notify("Quiz concluido. Agora escolha o horario do diagnostico.");
+  notify("Quiz concluído. Agora escolha o horário do diagnóstico.");
 }
 
 function renderScheduleStep() {
@@ -590,12 +590,12 @@ function renderScheduleStep() {
   leadDialog.innerHTML = `
     <form method="dialog" class="lead-form schedule-form">
       <button class="dialog-close" value="cancel" aria-label="Fechar" type="submit">x</button>
-      <div class="step-meta"><span>Quiz concluido</span><span>Agendamento</span></div>
+      <div class="step-meta"><span>Quiz concluído</span><span>Agendamento</span></div>
       <h2 id="leadTitle">${escapeHtml(calendar.title)}</h2>
       <p>${escapeHtml(calendar.body)}</p>
       <div class="calendar-embed">
         <iframe
-          title="Agenda do diagnostico Blumel"
+          title="Agenda do diagnóstico Blumel"
           src="${escapeHtml(calendarUrl)}"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
@@ -614,7 +614,7 @@ function openEditor() {
     <form method="dialog" class="editor-form">
       <button class="dialog-close" value="cancel" aria-label="Fechar" type="submit">x</button>
       <h2 id="editorTitle">Editor de narrativa</h2>
-      <p>Edite o JSON para replicar o mesmo formato com outra promessa, mercado, mecanismo e formulario.</p>
+      <p>Edite o JSON para replicar o mesmo formato com outra promessa, mercado, mecanismo e formulário.</p>
       <textarea id="configEditor" spellcheck="false">${escapeHtml(JSON.stringify(config, null, 2))}</textarea>
       <div class="form-actions">
         <button class="btn btn-ghost" data-reset type="button">Restaurar exemplo</button>
@@ -639,7 +639,7 @@ function saveEditor() {
     editorDialog.close();
     notify("Narrativa salva");
   } catch (error) {
-    notify(`JSON invalido: ${error.message}`);
+    notify(`JSON inválido: ${error.message}`);
   }
 }
 
