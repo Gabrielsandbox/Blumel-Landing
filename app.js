@@ -224,7 +224,7 @@ function render() {
       ${finalCta()}
     </main>
     ${footer()}
-    <button class="floating-editor" data-editor type="button">Editar narrativa</button>
+    <button class="mobile-sticky-cta" data-open-form type="button">${escapeHtml(config.cta.modalLabel)}</button>
   `;
 }
 
@@ -264,10 +264,31 @@ function hero() {
             <button class="btn btn-primary btn-large" data-open-form type="button">${escapeHtml(config.cta.modalLabel)} <span aria-hidden="true">-></span></button>
             <a class="hero-link" href="#processo">Ver como funciona</a>
           </div>
+          <small class="hero-microcopy">Diagnostico gratuito, com mapa real da sua captacao antes de qualquer proposta.</small>
         </div>
         <div class="stat-row">${config.hero.stats.map(stat).join("")}</div>
+        ${conversionRail()}
       </div>
     </section>
+  `;
+}
+
+function conversionRail() {
+  const items = [
+    ["Aquisicao", "canais alem do trafego pago"],
+    ["Conducao", "lead guiado ate visita ou WhatsApp"],
+    ["Conversao", "oportunidade pronta para matricula"]
+  ];
+  return `
+    <div class="conversion-rail" aria-label="Resumo do funil Blumel">
+      ${items.map(([title, text], index) => `
+        <article>
+          <span>${String(index + 1).padStart(2, "0")}</span>
+          <strong>${escapeHtml(title)}</strong>
+          <p>${escapeHtml(text)}</p>
+        </article>
+      `).join("")}
+    </div>
   `;
 }
 
@@ -438,9 +459,9 @@ function footer() {
         <a href="#faq">FAQ</a>
       </div>
       <div>
-        <strong>Template</strong>
-        <button data-editor type="button">Editar narrativa</button>
-        <button data-export type="button">Exportar JSON</button>
+        <strong>Diagnostico</strong>
+        <button data-open-form type="button">Quero meu diagnostico gratuito</button>
+        <a href="#processo">Ver mecanismo</a>
       </div>
     </footer>
   `;
