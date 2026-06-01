@@ -89,7 +89,7 @@ const defaultConfig = {
       name: "Lucas Blumel",
       role: "fundador da Blumel",
       quote: "A instituição não precisa de mais uma peça solta. Precisa de um funil completo, operado por quem entende o caminho da matrícula.",
-      photo: ""
+      photo: "assets/lucas-blumel.png"
     },
     metrics: [
       { value: "9 anos", label: "operando captação educacional" },
