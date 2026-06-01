@@ -4,6 +4,7 @@ const defaultConfig = {
   brand: {
     name: "Blumel",
     mark: "BL",
+    logo: "assets/blumel-logo.png",
     descriptor: "captação de matrículas",
     topBar: "O maior ecossistema de matrículas do Brasil",
     nav: ["Para quem é", "Mecanismo", "Provas", "FAQ"]
@@ -236,7 +237,7 @@ function header() {
   return `
     <header class="site-header">
       <a class="brand" href="#top" aria-label="${escapeHtml(config.brand.name)}">
-        <span class="brand-mark">${escapeHtml(config.brand.mark)}</span>
+        ${brandMark()}
         <span><strong>${escapeHtml(config.brand.name)}</strong><small>${escapeHtml(config.brand.descriptor)}</small></span>
       </a>
       <nav aria-label="Navegacao">
@@ -271,6 +272,13 @@ function hero() {
       </div>
     </section>
   `;
+}
+
+function brandMark() {
+  if (config.brand.logo) {
+    return `<span class="brand-mark brand-logo"><img src="${escapeHtml(config.brand.logo)}" alt="" aria-hidden="true"></span>`;
+  }
+  return `<span class="brand-mark">${escapeHtml(config.brand.mark)}</span>`;
 }
 
 function conversionRail() {
@@ -448,7 +456,10 @@ function footer() {
   return `
     <footer class="footer">
       <div>
-        <strong>${escapeHtml(config.brand.name)}</strong>
+        <div class="footer-brand">
+          ${brandMark()}
+          <strong>${escapeHtml(config.brand.name)}</strong>
+        </div>
         <p>Ecossistema de captação para escolas e faculdades que querem matricular mais rápido e mais barato.</p>
       </div>
       <div>
