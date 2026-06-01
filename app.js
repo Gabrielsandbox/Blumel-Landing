@@ -6,7 +6,7 @@ const defaultConfig = {
     mark: "BL",
     logo: "assets/blumel-logo.png",
     descriptor: "captação de matrículas",
-    topBar: "O maior ecossistema de matrículas do Brasil",
+    topBar: "🏆 O maior ecossistema de matrículas do Brasil",
     nav: ["Para quem é", "Mecanismo", "Provas", "FAQ"]
   },
   cta: {
