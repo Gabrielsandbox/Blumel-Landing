@@ -16,10 +16,10 @@ const defaultConfig = {
     urgency: "O diagnóstico mostra um mapa real da sua operação, dos canais ao fechamento da matrícula."
   },
   hero: {
-    qualifier: "Para escolas e faculdades que faturam de R$30k a R$500k+ por mês",
+    qualifier: "Para Escolas e Faculdades que faturam de R$30k a R$500k+ por mês",
     title: "Você não precisa de mais tráfego, mais vendedor ou mais uma IA de atendimento. Você precisa da estrutura certa para matricular mais rápido e mais barato.",
     highlight: "estrutura certa",
-    subtitle: "A Blumel assume o funil inteiro, da aquisição do lead até a ponta da conversão. Construímos canais, geramos demanda, qualificamos e entregamos a oportunidade pronta. À escola ou faculdade sobra a parte que mais importa: converter a visita que levamos ou tirar o pedido da matrícula no WhatsApp, sem aumentar verba de tráfego e sem inchar o time comercial.",
+    subtitle: "",
     note: "Em um diagnóstico 1:1, um estrategista identifica onde seu funil está furado, da captação ao fechamento da matrícula, e mostra como crescer sem depender de vendedor estrela ou de mais tráfego caro.",
     proof: "★★★★★ 4,9 · 2.500+ instituições · +400 mil matrículas geradas em 9 anos",
     stats: [
@@ -36,7 +36,7 @@ const defaultConfig = {
       { title: "Você depende só do tráfego pago", text: "Toda matrícula do mês sai do anúncio do mês. Se a verba para, a captação para, porque não existe outro canal trazendo aluno em paralelo." },
       { title: "O lead chega e morre no caminho", text: "Demora para responder, ninguém conduz para visita, ninguém fecha na conversa e ninguém faz follow-up. Você paga para gerar e perde na largada." },
       { title: "Cada melhoria é uma peça solta", text: "Um pouco de tráfego aqui, um vendedor ali, uma planilha acolá. Nada conversa entre si. Peça solta não vira resultado; vira custo." },
-      { title: "Tudo depende de você ou do vendedor ter jeito", text: "Sem estrutura, a captação anda no improviso. Se a pessoa-chave falha, o mês inteiro vai junto." }
+      { title: "Tudo depende de você ou do talento do vendedor", text: "Sem estrutura, a captação anda no improviso. Se a pessoa-chave falha, o mês inteiro vai junto." }
     ],
     close: "Não falta esforço nem dinheiro. Falta estrutura: um funil pensado de ponta a ponta, com estratégia para fazer o lead matricular mais rápido e custando menos."
   },
@@ -268,7 +268,7 @@ function hero() {
         <div class="hero-copy">
           <div class="pill"><span></span>${escapeHtml(config.hero.qualifier)}</div>
           <h1>${emphasize(config.hero.title, config.hero.highlight)}</h1>
-          <p>${escapeHtml(config.hero.subtitle)}</p>
+          ${config.hero.subtitle ? `<p>${escapeHtml(config.hero.subtitle)}</p>` : ""}
           ${config.hero.note ? `<p class="hero-note">${escapeHtml(config.hero.note)}</p>` : ""}
           ${config.hero.proof ? `<div class="hero-proof">${escapeHtml(config.hero.proof)}</div>` : ""}
           <div class="hero-actions">
