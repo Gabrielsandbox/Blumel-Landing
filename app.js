@@ -353,7 +353,7 @@ function mistake() {
       <div class="section-head">
         <h2>${escapeHtml(config.mistake.title)}</h2>
       </div>
-      <div class="three-grid">${config.mistake.cards.map(card).join("")}</div>
+      <div class="three-grid">${config.mistake.cards.map((item, index) => card(item, index + 1)).join("")}</div>
     </section>
   `;
 }
@@ -440,7 +440,7 @@ function diagnostic() {
   return `
     <section class="section">
       <div class="section-head"><h2>${escapeHtml(config.diagnostic.title)}</h2></div>
-      <div class="diagnostic-grid">${config.diagnostic.items.map(card).join("")}</div>
+      <div class="diagnostic-grid">${config.diagnostic.items.map((item, index) => card(item, index + 1)).join("")}</div>
       <div class="center"><button class="btn btn-primary" data-open-form type="button">${escapeHtml(config.cta.modalLabel)}</button></div>
     </section>
   `;
