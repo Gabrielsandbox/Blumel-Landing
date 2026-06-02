@@ -17,8 +17,8 @@ const defaultConfig = {
   },
   hero: {
     qualifier: "Para Escolas e Faculdades que faturam de R$30k a R$500k+ por mês",
-    title: "Você não precisa de mais tráfego, mais vendedor ou mais uma IA de atendimento. Você precisa da estrutura certa para matricular mais rápido e mais barato.",
-    highlight: "estrutura certa",
+    title: "Você não precisa de mais tráfego, mais vendedor ou mais uma IA de atendimento. Você precisa da Estrutura e Estratégia certa para matricular mais rápido e mais barato.",
+    highlight: "Estrutura e Estratégia certa",
     subtitle: "",
     note: "Em um diagnóstico 1:1, um estrategista identifica onde seu funil está furado, da captação ao fechamento da matrícula, e mostra como crescer sem depender de vendedor estrela ou de mais tráfego caro.",
     proof: "★★★★★ 4,9 · 2.500+ instituições · +400 mil matrículas geradas em 9 anos",
@@ -107,7 +107,7 @@ const defaultConfig = {
     ]
   },
   fit: {
-    title: "Esse diagnóstico é para instituições que querem matricular com estrutura.",
+    title: "Esse diagnóstico é para instituições que querem matrículas mais rápido e com previsibilidade.",
     yes: [
       "Escolas, faculdades, cursos técnicos, profissionalizantes, idiomas, EJA ou educação infantil.",
       "Instituições que faturam de R$30k a R$500k+ por mês.",
