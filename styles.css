@@ -1154,6 +1154,11 @@ dialog::backdrop {
   background: rgba(37, 99, 235, 0.22);
 }
 
+.step-tabs button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
 .step-meta {
   display: flex;
   justify-content: space-between;

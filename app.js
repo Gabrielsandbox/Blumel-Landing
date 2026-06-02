@@ -551,7 +551,7 @@ function renderLeadForm() {
     <form method="dialog" class="lead-form">
       <button class="dialog-close" value="cancel" aria-label="Fechar" type="submit">x</button>
       <div class="step-tabs">${config.form.steps.map((item, index) => `
-        <button class="${index === currentStep ? "active" : ""}" data-go-step="${index}" type="button">
+        <button class="${index === currentStep ? "active" : ""}" data-go-step="${index}" type="button" ${canGoToStep(index) ? "" : "disabled"}>
           <span>${index + 1}</span>${escapeHtml(item.label)}
         </button>
       `).join("")}</div>
@@ -586,6 +586,21 @@ function fieldsStep(step) {
       <input name="${escapeHtml(field.id)}" type="${escapeHtml(field.type)}" placeholder="${escapeHtml(field.placeholder)}" value="${escapeHtml(answers[field.id] || "")}" required>
     </label>
   `).join("")}</div>`;
+}
+
+function stepHasAnswer(index) {
+  const step = config.form.steps[index];
+  if (!step?.required) return true;
+  if (step.type === "choice") return Boolean(answers[step.id]);
+  return step.fields.every((field) => Boolean(answers[field.id]));
+}
+
+function canGoToStep(index) {
+  if (index <= currentStep) return true;
+  for (let stepIndex = 0; stepIndex < index; stepIndex += 1) {
+    if (!stepHasAnswer(stepIndex)) return false;
+  }
+  return true;
 }
 
 function persistCurrentStep() {
@@ -736,8 +751,16 @@ document.addEventListener("click", (event) => {
     renderLeadForm();
   }
   if (target.matches("[data-go-step]")) {
-    persistCurrentStep();
-    currentStep = Number(target.dataset.goStep);
+    const requestedStep = Number(target.dataset.goStep);
+    if (requestedStep > currentStep && !persistCurrentStep()) {
+      notify("Responda esta pergunta para continuar");
+      return;
+    }
+    if (!canGoToStep(requestedStep)) {
+      notify("Responda as etapas anteriores para continuar");
+      return;
+    }
+    currentStep = requestedStep;
     renderLeadForm();
   }
   if (target.matches("[data-save-config]")) saveEditor();
