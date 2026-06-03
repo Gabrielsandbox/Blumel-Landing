@@ -1,4 +1,4 @@
-const STORAGE_KEY = "blumel-enrollment-funnel-v3";
+const STORAGE_KEY = "blumel-enrollment-funnel-v4";
 
 const defaultConfig = {
   brand: {
@@ -174,6 +174,40 @@ const defaultConfig = {
         type: "choice",
         required: true,
         options: ["Abaixo de R$30 mil", "Entre R$30 mil e R$50 mil", "Entre R$50 mil e R$100 mil", "Entre R$100 mil e R$300 mil", "Entre R$300 mil e R$500 mil", "Acima de R$500 mil"]
+      },
+      {
+        id: "vendedores",
+        label: "Vendedores",
+        title: "Quantos vendedores sua instituição tem hoje?",
+        help: "Isso mostra se o gargalo está em equipe, processo ou condução comercial.",
+        type: "choice",
+        required: true,
+        options: ["Não tenho vendedor", "1 vendedor", "2 a 3 vendedores", "Mais de 4 vendedores"]
+      },
+      {
+        id: "trafego",
+        label: "Tráfego",
+        title: "Investe em tráfego pago? Se sim, quanto por mês?",
+        help: "A análise considera quanto a instituição depende do tráfego para gerar matrículas.",
+        type: "choice",
+        required: true,
+        options: ["Não invisto", "Menos de R$1.000", "De R$1.000 a R$2.000", "De R$2.000 a R$4.000", "Acima de R$4.000"]
+      },
+      {
+        id: "desafio",
+        label: "Desafio",
+        title: "Qual é o seu maior desafio hoje?",
+        help: "Com isso, o diagnóstico já parte do ponto que mais trava suas matrículas.",
+        type: "choice",
+        required: true,
+        options: [
+          "Dependo demais de indicações",
+          "Ações pontuais ou sazonalidade",
+          "Não tenho previsibilidade de matrículas mês a mês",
+          "Os leads chegam, mas não têm perfil financeiro",
+          "Falta um processo comercial claro e replicável",
+          "Gero leads, mas a conversão em matrícula é baixa"
+        ]
       },
       {
         id: "contato",
@@ -643,6 +677,9 @@ function renderScheduleStep() {
   if (answers.whatsapp) params.set("a1", answers.whatsapp);
   if (answers.segmento) params.set("a2", answers.segmento);
   if (answers.receita) params.set("a3", answers.receita);
+  if (answers.vendedores) params.set("a4", answers.vendedores);
+  if (answers.trafego) params.set("a5", answers.trafego);
+  if (answers.desafio) params.set("a6", answers.desafio);
   const calendarUrl = `${calendar.url}${calendar.url.includes("?") ? "&" : "?"}${params.toString()}`;
 
   leadDialog.innerHTML = `

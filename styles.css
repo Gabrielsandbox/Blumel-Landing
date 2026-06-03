@@ -1130,7 +1130,7 @@ dialog::backdrop {
 
 .step-tabs {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 8px;
   padding-right: 42px;
 }
@@ -1430,7 +1430,7 @@ dialog::backdrop {
   }
 
   .step-tabs {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(32px, 1fr));
     gap: 5px;
     padding-right: 38px;
   }
