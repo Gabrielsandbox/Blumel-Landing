@@ -1,4 +1,4 @@
-const STORAGE_KEY = "blumel-enrollment-funnel-v4";
+const STORAGE_KEY = "blumel-enrollment-funnel-v5";
 
 const defaultConfig = {
   brand: {
@@ -134,6 +134,9 @@ const defaultConfig = {
     body: "Depois de responder o quiz, selecione um dia e horário no calendário abaixo. Assim, o estrategista já recebe seu contexto antes da conversa.",
     url: "https://calendly.com/blumelmatriculas/diagnostico-gratuito-blumel"
   },
+  webhook: {
+    url: "https://primary-production-cef3.up.railway.app/webhook/webinar"
+  },
   clients: [
     { name: "Microlins", logo: "assets/client-microlins.png" },
     { name: "Prepara", logo: "assets/client-prepara.png" },
@@ -228,6 +231,7 @@ const defaultConfig = {
 
 let config = loadConfig();
 let currentStep = 0;
+let leadWebhookFingerprint = "";
 const answers = {};
 
 const app = document.querySelector("#app");
@@ -664,9 +668,43 @@ function nextStep() {
     renderLeadForm();
     return;
   }
-  console.table(answers);
+  submitLeadWebhook();
   renderScheduleStep();
   notify("Quiz concluído. Agora escolha o horário do diagnóstico.");
+}
+
+function leadPayload() {
+  const params = new URLSearchParams(window.location.search);
+  const utm = {};
+  params.forEach((value, key) => {
+    if (key.startsWith("utm_")) utm[key] = value;
+  });
+
+  return {
+    source: "Blumel Landing",
+    submitted_at: new Date().toISOString(),
+    page_url: window.location.href,
+    referrer: document.referrer || "",
+    utm,
+    answers: { ...answers }
+  };
+}
+
+function submitLeadWebhook() {
+  const webhookUrl = config.webhook?.url || defaultConfig.webhook.url;
+  const fingerprint = JSON.stringify(answers);
+  if (!webhookUrl || leadWebhookFingerprint === fingerprint) return;
+  leadWebhookFingerprint = fingerprint;
+
+  fetch(webhookUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(leadPayload()),
+    keepalive: true
+  }).catch(() => {
+    leadWebhookFingerprint = "";
+    notify("Não foi possível enviar os dados agora. Tente novamente em instantes.");
+  });
 }
 
 function renderScheduleStep() {
