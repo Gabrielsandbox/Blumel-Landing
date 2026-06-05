@@ -1,4 +1,4 @@
-const STORAGE_KEY = "blumel-enrollment-funnel-v5";
+const STORAGE_KEY = "blumel-enrollment-funnel-v6";
 
 const defaultConfig = {
   brand: {
@@ -222,7 +222,8 @@ const defaultConfig = {
         fields: [
           { id: "nome", label: "Nome completo", type: "text", placeholder: "Como podemos te chamar" },
           { id: "email", label: "E-mail", type: "email", placeholder: "seu@email.com" },
-          { id: "whatsapp", label: "WhatsApp", type: "tel", placeholder: "(11) 99999-9999" }
+          { id: "whatsapp", label: "WhatsApp", type: "tel", placeholder: "(11) 99999-9999" },
+          { id: "instagram", label: "Instagram", type: "text", placeholder: "@seuinstagram" }
         ]
       }
     ]
@@ -718,6 +719,7 @@ function renderScheduleStep() {
   if (answers.vendedores) params.set("a4", answers.vendedores);
   if (answers.trafego) params.set("a5", answers.trafego);
   if (answers.desafio) params.set("a6", answers.desafio);
+  if (answers.instagram) params.set("a7", answers.instagram);
   const calendarUrl = `${calendar.url}${calendar.url.includes("?") ? "&" : "?"}${params.toString()}`;
 
   leadDialog.innerHTML = `
