@@ -132,7 +132,7 @@ const defaultConfig = {
   calendar: {
     title: "Agora escolha o melhor horário para o diagnóstico.",
     body: "Depois de responder o quiz, selecione um dia e horário no calendário abaixo. Assim, o estrategista já recebe seu contexto antes da conversa.",
-    url: "https://calendly.com/blumelmatriculas/diagnostico-gratuito-blumel"
+    url: "https://calendly.com/gabrielsandboxia/blumel"
   },
   webhook: {
     url: "https://primary-production-cef3.up.railway.app/webhook/webinar"
