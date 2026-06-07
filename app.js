@@ -738,7 +738,6 @@ function renderScheduleStep() {
       </div>
       <div class="form-actions">
         <button class="btn btn-ghost" data-edit-quiz type="button">Voltar ao quiz</button>
-        <a class="btn btn-primary" href="${escapeHtml(calendarUrl)}" target="_blank" rel="noreferrer">Abrir Calendly em nova aba</a>
       </div>
     </form>
   `;
