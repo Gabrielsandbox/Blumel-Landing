@@ -233,6 +233,7 @@ const defaultConfig = {
 let config = loadConfig();
 let currentStep = 0;
 let leadWebhookFingerprint = "";
+let leadPixelFingerprint = "";
 const answers = {};
 
 const app = document.querySelector("#app");
@@ -669,9 +670,19 @@ function nextStep() {
     renderLeadForm();
     return;
   }
+  trackLeadPixel();
   submitLeadWebhook();
   renderScheduleStep();
   notify("Quiz concluído. Agora escolha o horário do diagnóstico.");
+}
+
+function trackLeadPixel() {
+  const fingerprint = JSON.stringify(answers);
+  if (leadPixelFingerprint === fingerprint) return;
+  if (typeof fbq === "function") {
+    fbq("track", "Lead");
+    leadPixelFingerprint = fingerprint;
+  }
 }
 
 function leadPayload() {
