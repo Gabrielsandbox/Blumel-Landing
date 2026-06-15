@@ -337,9 +337,30 @@ h1 em {
   color: #dbeafe;
 }
 
+.hero-video {
+  width: min(860px, 100%);
+  margin: -8px auto 24px;
+  padding: 10px;
+  border: 1px solid rgba(147, 197, 253, 0.28);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.035)),
+    rgba(8, 18, 38, 0.76);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+}
+
+.hero-video video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  background: #020617;
+  object-fit: cover;
+}
+
 .hero-proof {
   width: fit-content;
-  margin: -8px 0 30px;
+  margin: 0 0 30px;
   padding: 11px 18px;
   border: 1px solid rgba(147, 197, 253, 0.32);
   border-radius: 999px;
@@ -1347,6 +1368,16 @@ dialog::backdrop {
   .hero {
     min-height: auto;
     padding-top: 44px;
+  }
+
+  .hero-video {
+    margin: -8px auto 22px;
+    padding: 6px;
+    border-radius: 12px;
+  }
+
+  .hero-video video {
+    border-radius: 8px;
   }
 
   h1 {

@@ -310,6 +310,7 @@ function hero() {
           <h1>${emphasize(config.hero.title, config.hero.highlight)}</h1>
           ${config.hero.subtitle ? `<p>${escapeHtml(config.hero.subtitle)}</p>` : ""}
           ${config.hero.note ? `<p class="hero-note">${escapeHtml(config.hero.note)}</p>` : ""}
+          ${heroVideo()}
           ${config.hero.proof ? `<div class="hero-proof">${escapeHtml(config.hero.proof)}</div>` : ""}
           <div class="hero-actions">
             <button class="btn btn-primary btn-large" data-open-form type="button">${escapeHtml(config.cta.modalLabel)} <span aria-hidden="true">-></span></button>
@@ -321,6 +322,17 @@ function hero() {
         ${conversionRail()}
       </div>
     </section>
+  `;
+}
+
+function heroVideo() {
+  return `
+    <figure class="hero-video" aria-label="Video do diagnostico Blumel">
+      <video controls preload="metadata" playsinline poster="assets/hero-diagnostic-poster.jpg">
+        <source src="assets/hero-diagnostic.mp4" type="video/mp4">
+        Seu navegador nao suporta video HTML5.
+      </video>
+    </figure>
   `;
 }
 
