@@ -1063,6 +1063,27 @@ details p {
   line-height: 1.7;
 }
 
+.thanks-video {
+  width: min(760px, 100%);
+  margin: 0 0 32px;
+  padding: 8px;
+  border: 1px solid rgba(147, 197, 253, 0.26);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.035)),
+    rgba(7, 11, 19, 0.52);
+  box-shadow: 0 20px 54px rgba(0, 0, 0, 0.24);
+}
+
+.thanks-video video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  background: #020617;
+  object-fit: cover;
+}
+
 .thanks-steps {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1556,6 +1577,16 @@ dialog::backdrop {
 
   .thanks-card h1 {
     font-size: clamp(1.9rem, 9vw, 2.7rem);
+  }
+
+  .thanks-video {
+    margin-bottom: 24px;
+    padding: 6px;
+    border-radius: 12px;
+  }
+
+  .thanks-video video {
+    border-radius: 8px;
   }
 
   .thanks-steps {
