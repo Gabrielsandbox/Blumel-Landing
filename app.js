@@ -328,7 +328,7 @@ function hero() {
 function heroVideo() {
   return `
     <figure class="hero-video" aria-label="Video do diagnostico Blumel">
-      <video autoplay muted playsinline preload="auto" poster="assets/hero-diagnostic-poster.jpg" data-lock-seeking disablepictureinpicture oncontextmenu="return false">
+      <video autoplay playsinline preload="auto" poster="assets/hero-diagnostic-poster.jpg" data-lock-seeking disablepictureinpicture oncontextmenu="return false">
         <source src="assets/hero-diagnostic.mp4" type="video/mp4">
         Seu navegador nao suporta video HTML5.
       </video>

@@ -1,5 +1,24 @@
 (() => {
   const selector = "video[data-lock-seeking]";
+  const pendingPlay = new Set();
+
+  function playWithAudio(video) {
+    video.muted = false;
+    video.defaultMuted = false;
+    video.volume = 1;
+    video.controls = false;
+
+    const playAttempt = video.play();
+    if (playAttempt?.catch) {
+      playAttempt
+        .then(() => pendingPlay.delete(video))
+        .catch(() => pendingPlay.add(video));
+    }
+  }
+
+  function retryPendingVideos() {
+    pendingPlay.forEach(playWithAudio);
+  }
 
   function lockVideo(video) {
     if (video.dataset.lockSeekingReady === "true") return;
@@ -16,6 +35,8 @@
         video.currentTime = allowedTime;
       }
     });
+
+    playWithAudio(video);
   }
 
   function lockAllVideos() {
@@ -32,4 +53,7 @@
     childList: true,
     subtree: true
   });
+
+  document.addEventListener("pointerdown", retryPendingVideos, { passive: true });
+  document.addEventListener("keydown", retryPendingVideos);
 })();
