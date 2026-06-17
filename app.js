@@ -258,7 +258,6 @@ function saveConfig() {
 function render() {
   document.title = `${config.brand.name} - ${config.form.title}`;
   app.innerHTML = `
-    ${topStrip()}
     ${header()}
     <main>
       ${hero()}
@@ -279,24 +278,10 @@ function render() {
   `;
 }
 
-function topStrip() {
-  return `<div class="top-strip">${escapeHtml(config.brand.topBar)}</div>`;
-}
-
 function header() {
   return `
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="${escapeHtml(config.brand.name)}">
-        ${brandMark()}
-        <span><strong>${escapeHtml(config.brand.name)}</strong><small>${escapeHtml(config.brand.descriptor)}</small></span>
-      </a>
-      <nav aria-label="Navegacao">
-        <a href="#para-quem">${escapeHtml(config.brand.nav[0])}</a>
-        <a href="#processo">${escapeHtml(config.brand.nav[1])}</a>
-        <a href="#cases">${escapeHtml(config.brand.nav[2])}</a>
-        <a href="#faq">${escapeHtml(config.brand.nav[3])}</a>
-      </nav>
-      <button class="btn btn-primary" data-open-form type="button">${escapeHtml(config.cta.label)}</button>
+      <p class="header-line">${escapeHtml(config.brand.topBar)}</p>
     </header>
   `;
 }
