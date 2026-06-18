@@ -137,6 +137,11 @@ const defaultConfig = {
   webhook: {
     url: "https://primary-production-cef3.up.railway.app/webhook/webinar"
   },
+  supabase: {
+    url: "https://frokqdgzqswbgfbpahme.supabase.co",
+    anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyb2txZGd6cXN3YmdmYnBhaG1lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3MzE4NDAsImV4cCI6MjA5NzMwNzg0MH0.gz0eU06nNHiZHcooWiNX0IbmwDUuvHwwFV1FwizjX4E",
+    table: "leads"
+  },
   clients: [
     { name: "Microlins", logo: "assets/client-microlins.png" },
     { name: "Prepara", logo: "assets/client-prepara.png" },
@@ -233,6 +238,7 @@ const defaultConfig = {
 let config = loadConfig();
 let currentStep = 0;
 let leadWebhookFingerprint = "";
+let leadSupabaseFingerprint = "";
 let leadPixelFingerprint = "";
 const answers = {};
 
@@ -669,6 +675,7 @@ function nextStep() {
   }
   trackLeadPixel();
   submitLeadWebhook();
+  submitLeadSupabase();
   renderScheduleStep();
   notify("Quiz concluído. Agora escolha o horário do diagnóstico.");
 }
@@ -713,6 +720,61 @@ function submitLeadWebhook() {
   }).catch(() => {
     leadWebhookFingerprint = "";
     notify("Não foi possível enviar os dados agora. Tente novamente em instantes.");
+  });
+}
+
+function supabaseConfig() {
+  const settings = config.supabase || defaultConfig.supabase || {};
+  return {
+    url: String(settings.url || "").replace(/\/+$/, ""),
+    anonKey: String(settings.anonKey || ""),
+    table: String(settings.table || defaultConfig.supabase.table)
+  };
+}
+
+function leadSupabaseRow(payload) {
+  const answerData = payload.answers || {};
+  return {
+    source: payload.source,
+    submitted_at: payload.submitted_at,
+    page_url: payload.page_url,
+    referrer: payload.referrer,
+    utm: payload.utm,
+    answers: payload.answers,
+    nome: answerData.nome || null,
+    email: answerData.email || null,
+    whatsapp: answerData.whatsapp || null,
+    instagram: answerData.instagram || null,
+    segmento: answerData.segmento || null,
+    perfil: answerData.perfil || null,
+    receita: answerData.receita || null,
+    vendedores: answerData.vendedores || null,
+    trafego: answerData.trafego || null,
+    desafio: answerData.desafio || null
+  };
+}
+
+function submitLeadSupabase() {
+  const settings = supabaseConfig();
+  const fingerprint = JSON.stringify(answers);
+  if (!settings.url || !settings.anonKey || !settings.table || leadSupabaseFingerprint === fingerprint) return;
+  leadSupabaseFingerprint = fingerprint;
+
+  fetch(`${settings.url}/rest/v1/${encodeURIComponent(settings.table)}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "apikey": settings.anonKey,
+      "Authorization": `Bearer ${settings.anonKey}`,
+      "Prefer": "return=minimal"
+    },
+    body: JSON.stringify(leadSupabaseRow(leadPayload())),
+    keepalive: true
+  }).then((response) => {
+    if (!response.ok) throw new Error("Supabase insert failed");
+  }).catch(() => {
+    leadSupabaseFingerprint = "";
+    notify("Não foi possível registrar os dados no Supabase agora.");
   });
 }
 
