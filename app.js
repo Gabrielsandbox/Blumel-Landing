@@ -250,11 +250,28 @@ const toast = document.querySelector("#toast");
 function loadConfig() {
   try {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    if (saved && saved.hero && saved.form) return saved;
+    if (saved && saved.hero && saved.form) return normalizeConfig(saved);
   } catch {
     localStorage.removeItem(STORAGE_KEY);
   }
   return structuredClone(defaultConfig);
+}
+
+function normalizeConfig(value) {
+  const merged = {
+    ...structuredClone(defaultConfig),
+    ...value
+  };
+  merged.brand = { ...defaultConfig.brand, ...(value.brand || {}) };
+  merged.cta = { ...defaultConfig.cta, ...(value.cta || {}) };
+  merged.calendar = { ...defaultConfig.calendar, ...(value.calendar || {}) };
+  merged.webhook = { ...defaultConfig.webhook, ...(value.webhook || {}) };
+  merged.supabase = {
+    url: value.supabase?.url || defaultConfig.supabase.url,
+    anonKey: value.supabase?.anonKey || defaultConfig.supabase.anonKey,
+    table: value.supabase?.table || defaultConfig.supabase.table
+  };
+  return merged;
 }
 
 function saveConfig() {
@@ -768,12 +785,17 @@ function submitLeadSupabase() {
       "Authorization": `Bearer ${settings.anonKey}`,
       "Prefer": "return=minimal"
     },
-    body: JSON.stringify(leadSupabaseRow(leadPayload())),
-    keepalive: true
+    body: JSON.stringify(leadSupabaseRow(leadPayload()))
   }).then((response) => {
-    if (!response.ok) throw new Error("Supabase insert failed");
-  }).catch(() => {
+    if (!response.ok) {
+      return response.text().then((message) => {
+        throw new Error(message || `Supabase insert failed with ${response.status}`);
+      });
+    }
+    return undefined;
+  }).catch((error) => {
     leadSupabaseFingerprint = "";
+    console.error("Supabase lead insert failed", error);
     notify("Não foi possível registrar os dados no Supabase agora.");
   });
 }
@@ -837,7 +859,7 @@ function saveEditor() {
     if (!parsed.hero || !parsed.form || !Array.isArray(parsed.form.steps)) {
       throw new Error("JSON precisa conter hero e form.steps");
     }
-    config = parsed;
+    config = normalizeConfig(parsed);
     saveConfig();
     render();
     editorDialog.close();
