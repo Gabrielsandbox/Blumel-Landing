@@ -139,6 +139,7 @@ async function handleSimLead(request, response) {
 
   const simPayload = buildSimPayload(payload);
   if (!simPayload.lead.nome || !simPayload.lead.telefone) {
+    console.warn("SIM lead rejeitado: nome ou WhatsApp ausentes");
     sendJson(response, 400, { ok: false, error: "Nome e WhatsApp são obrigatórios" }, cors);
     return;
   }
@@ -164,11 +165,15 @@ async function handleSimLead(request, response) {
       return;
     }
 
+    const leadId = data.lead_id ?? data.id ?? null;
+    console.log(
+      `SIM lead ${data.duplicado ? "duplicado" : "criado"} id=${leadId} telefone=***${simPayload.lead.telefone.slice(-4)} funil=${sim.funilId ?? "padrão"} etapa=${sim.etapaId ?? "padrão"}`
+    );
     sendJson(response, 200, {
       ok: true,
       status: simResponse.status,
       duplicado: Boolean(data.duplicado),
-      lead_id: data.lead_id ?? data.id ?? null
+      lead_id: leadId
     }, cors);
   } catch (error) {
     console.error("Falha ao chamar o SIM", error);
