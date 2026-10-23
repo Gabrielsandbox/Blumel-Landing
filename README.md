@@ -32,7 +32,45 @@ Para usar o Calendly real, troque `calendar.url` em `app.js` pelo link do evento
 Quando o quiz é concluído, a landing envia o payload para:
 
 - `webhook.url`, mantendo o fluxo atual;
-- Supabase REST, configurado em `supabase.url`, `supabase.anonKey` e `supabase.table` em `app.js`.
+- Supabase REST, configurado em `supabase.url`, `supabase.anonKey` e `supabase.table` em `app.js`;
+- SIM (CRM), via o endpoint `POST /api/sim-lead` do próprio `server.mjs`, configurado em `sim.endpoint` em `app.js`.
+
+## Integração com o SIM
+
+O SIM não aceita chamadas diretas do navegador e o token identifica a instituição inteira, então o envio é feito pelo servidor. O fluxo é:
+
+1. o quiz envia o payload do lead para `sim.endpoint` (padrão `api/sim-lead`, relativo ao domínio da landing);
+2. `server.mjs` monta o corpo no contrato do SIM e chama `https://app.eusousim.com.br/api/webhooks/v1/leads` com o header `token-de-acesso`;
+3. nome e WhatsApp viram `lead.nome` e `lead.telefone`; e-mail vai em `lead.email`; o tipo de instituição vai em `lead.interesse`; as demais respostas do quiz, o Instagram e as UTMs viram `tags`.
+
+Variáveis de ambiente (veja `.env.example`):
+
+| Variável | Uso |
+| --- | --- |
+| `SIM_TOKEN` | obrigatório. Gerado em Configurações > Webhooks no SIM. |
+| `SIM_ORIGEM` | nome fixo da landing na origem do lead. Padrão `landing-blumel`. |
+| `SIM_FUNIL_ID`, `SIM_ETAPA_ID` | funil e etapa de entrada no SIM. Padrão: funil `3778`, etapa `21524`. |
+| `SIM_TAGS` | tags fixas separadas por vírgula. Padrão `landing`. |
+| `ALLOWED_ORIGINS` | origens que podem chamar o endpoint de outro domínio. Padrão `https://gabrielsandbox.github.io`. |
+
+No Railway, defina `SIM_TOKEN` nas variáveis do serviço. Sem o token, o endpoint responde 503 e o restante da landing continua funcionando.
+
+Se a landing for servida só como site estático (GitHub Pages), aponte `sim.endpoint` em `app.js` para a URL absoluta do endpoint no Railway, por exemplo `https://SEU-APP.up.railway.app/api/sim-lead`.
+
+Para rodar local com o token:
+
+```powershell
+Copy-Item .env.example .env   # preencha SIM_TOKEN
+npm run dev
+```
+
+Teste do endpoint:
+
+```powershell
+curl.exe -X POST http://127.0.0.1:4173/api/sim-lead -H "Content-Type: application/json" -d '{"answers":{"nome":"Teste Landing","whatsapp":"(19) 99999-0000","email":"teste@email.com","segmento":"Faculdade"}}'
+```
+
+Um segundo envio com o mesmo telefone volta `duplicado: true`, sem criar lead novo.
 
 Use somente a chave pública `anon` do Supabase. Nunca coloque a `service_role` em uma landing estática.
 

@@ -1,0 +1,14 @@
+{
+  "name": "blumel-landing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Landing page de captação de matrículas da Blumel com endpoint de leads para o SIM.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --env-file=.env server.mjs"
+  }
+}

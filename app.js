@@ -142,6 +142,9 @@ const defaultConfig = {
     anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyb2txZGd6cXN3YmdmYnBhaG1lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3MzE4NDAsImV4cCI6MjA5NzMwNzg0MH0.gz0eU06nNHiZHcooWiNX0IbmwDUuvHwwFV1FwizjX4E",
     table: "leads"
   },
+  sim: {
+    endpoint: "api/sim-lead"
+  },
   clients: [
     { name: "Microlins", logo: "assets/client-microlins.png" },
     { name: "Prepara", logo: "assets/client-prepara.png" },
@@ -240,6 +243,7 @@ let currentStep = 0;
 let leadWebhookFingerprint = "";
 let leadSupabaseFingerprint = "";
 let leadPixelFingerprint = "";
+let leadSimFingerprint = "";
 const answers = {};
 
 const app = document.querySelector("#app");
@@ -271,6 +275,7 @@ function normalizeConfig(value) {
     anonKey: value.supabase?.anonKey || defaultConfig.supabase.anonKey,
     table: value.supabase?.table || defaultConfig.supabase.table
   };
+  merged.sim = { ...defaultConfig.sim, ...(value.sim || {}) };
   return merged;
 }
 
@@ -693,6 +698,7 @@ function nextStep() {
   trackLeadPixel();
   submitLeadWebhook();
   submitLeadSupabase();
+  submitLeadSim();
   renderScheduleStep();
   notify("Quiz concluído. Agora escolha o horário do diagnóstico.");
 }
@@ -797,6 +803,32 @@ function submitLeadSupabase() {
     leadSupabaseFingerprint = "";
     console.error("Supabase lead insert failed", error);
     notify("Não foi possível registrar os dados no Supabase agora.");
+  });
+}
+
+// O SIM não aceita chamadas diretas do navegador e o token não pode ficar na página,
+// então o lead vai para o backend da landing (server.mjs), que repassa ao SIM.
+function submitLeadSim() {
+  const endpoint = String(config.sim?.endpoint ?? defaultConfig.sim.endpoint).trim();
+  const fingerprint = JSON.stringify(answers);
+  if (!endpoint || leadSimFingerprint === fingerprint) return;
+  leadSimFingerprint = fingerprint;
+
+  fetch(endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(leadPayload()),
+    keepalive: true
+  }).then((response) => {
+    if (!response.ok) {
+      return response.text().then((message) => {
+        throw new Error(message || `SIM lead failed with ${response.status}`);
+      });
+    }
+    return undefined;
+  }).catch((error) => {
+    leadSimFingerprint = "";
+    console.error("SIM lead submit failed", error);
   });
 }
 
